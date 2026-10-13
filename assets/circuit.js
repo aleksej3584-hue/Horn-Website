@@ -5,7 +5,6 @@
    Usage: hornCircuit(canvas, {region:(W,H)=>({x0,y0,x1,y1}), circuits:4, alpha:1}) */
 (function(global){
   'use strict';
-  var ACC = '251,186,0';
 
   function rng(seed){
     return function(){
@@ -24,6 +23,8 @@
     var board = null, circuits = [], consumers = [], pulses = [];
     var raf = 0, last = 0, nextSpawn = 0, alive = true;
     var A = opts.alpha == null ? 1 : opts.alpha;
+    var INK = opts.ink || '255,255,255';
+    var ACC = opts.accent || '251,186,0';
     var FONT = '"JB", ui-monospace, Menlo, monospace';
 
     function snap(v){ return Math.round(v / g) * g; }
@@ -126,7 +127,7 @@
       c.clearRect(0, 0, W, H);
 
       // drawing grid (dots)
-      c.fillStyle = 'rgba(255,255,255,' + (0.075 * A) + ')';
+      c.fillStyle = 'rgba(' + INK + ',' + (0.075 * A) + ')';
       for (var x = g; x < W; x += g) for (var y = g; y < H; y += g) c.fillRect(x - 0.6, y - 0.6, 1.2, 1.2);
 
       // warm glow behind the board
@@ -136,8 +137,8 @@
       c.fillStyle = gr; c.fillRect(0, 0, W, H);
 
       c.lineCap = 'butt'; c.lineJoin = 'miter';
-      var wire = 'rgba(255,255,255,' + (0.22 * A) + ')';
-      var faint = 'rgba(255,255,255,' + (0.34 * A) + ')';
+      var wire = 'rgba(' + INK + ',' + (0.22 * A) + ')';
+      var faint = 'rgba(' + INK + ',' + (0.34 * A) + ')';
 
       // circuits
       circuits.forEach(function(ci){
@@ -155,7 +156,7 @@
         });
         // cable label on the reserved stretch at the trunk end
         c.font = Math.round(g * 0.42) + 'px ' + FONT;
-        c.fillStyle = 'rgba(255,255,255,' + (0.34 * A) + ')';
+        c.fillStyle = 'rgba(' + INK + ',' + (0.34 * A) + ')';
         c.textBaseline = 'bottom';
         var lx = ci.endX + g * 0.5;
         c.fillText(ci.label, lx, ci.ty - 5);
@@ -163,22 +164,22 @@
 
       // distribution board
       var b = board;
-      c.strokeStyle = 'rgba(255,255,255,' + (0.5 * A) + ')'; c.lineWidth = 1.5;
+      c.strokeStyle = 'rgba(' + INK + ',' + (0.5 * A) + ')'; c.lineWidth = 1.5;
       c.strokeRect(b.x + 0.5, b.y + 0.5, b.w, b.h);
-      c.strokeStyle = 'rgba(255,255,255,' + (0.22 * A) + ')'; c.lineWidth = 1;
+      c.strokeStyle = 'rgba(' + INK + ',' + (0.22 * A) + ')'; c.lineWidth = 1;
       c.beginPath(); c.moveTo(b.x + g * 0.4, b.y + g * 1.6); c.lineTo(b.x + b.w - g * 0.4, b.y + g * 1.6); c.stroke(); // DIN rail
       // breakers
       for (var i = 0; i < circuits.length; i++){
         var bx = circuits[i].px - g * 0.22;
-        c.strokeStyle = 'rgba(255,255,255,' + (0.42 * A) + ')';
+        c.strokeStyle = 'rgba(' + INK + ',' + (0.42 * A) + ')';
         c.strokeRect(bx + 0.5, b.y + g * 1.15 + 0.5, g * 0.44, g * 0.9);
         c.beginPath(); c.moveTo(bx + g * 0.22, b.y + g * 1.3); c.lineTo(bx + g * 0.22, b.y + g * 1.55); c.stroke();
       }
       // RCD + main switch hints
-      c.strokeStyle = 'rgba(255,255,255,' + (0.3 * A) + ')';
+      c.strokeStyle = 'rgba(' + INK + ',' + (0.3 * A) + ')';
       c.strokeRect(b.x + g * 0.6 + 0.5, b.y + g * 2.6 + 0.5, b.w - g * 1.2, g * 0.9);
       c.font = Math.round(g * 0.38) + 'px ' + FONT;
-      c.fillStyle = 'rgba(255,255,255,' + (0.38 * A) + ')';
+      c.fillStyle = 'rgba(' + INK + ',' + (0.38 * A) + ')';
       c.textBaseline = 'middle';
       if (c.measureText('RCD 40/0,03 A').width < b.w - g * 1.6) c.fillText('RCD 40/0,03 A', b.x + g * 0.8, b.y + g * 3.05);
       else c.fillText('RCD', b.x + g * 0.8, b.y + g * 3.05);
@@ -190,11 +191,11 @@
         c.beginPath(); c.moveTo(fx, b.y + b.h); c.lineTo(fx, Math.min(H, b.y + b.h + g * 2.2)); c.stroke();
       }
       c.font = Math.round(g * 0.42) + 'px ' + FONT;
-      c.fillStyle = 'rgba(255,255,255,' + (0.42 * A) + ')';
+      c.fillStyle = 'rgba(' + INK + ',' + (0.42 * A) + ')';
       c.textBaseline = 'bottom';
       c.fillText('UV 1', b.x, b.y - 6);
       c.textBaseline = 'top';
-      c.fillStyle = 'rgba(255,255,255,' + (0.28 * A) + ')';
+      c.fillStyle = 'rgba(' + INK + ',' + (0.28 * A) + ')';
       var feed = W < 600 ? '400 V' : 'L1 L2 L3 N PE · 400 V';
       c.textAlign = 'right';
       c.fillText(feed, b.x + b.w / 2 - g * 1.0, b.y + b.h + g * 0.6);

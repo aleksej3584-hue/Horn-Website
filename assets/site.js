@@ -20,7 +20,9 @@
       },
       circuits:function(W,H){return 2;},
       grid:function(W,H){return portrait(W,H)?15:Math.max(18,Math.min(26,Math.round(innerHeight/32)));},
-      alpha:0.85,
+      ink:'18,18,18',
+      accent:'232,156,0',
+      alpha:1.1,
       maxPulses:3,
       seed:7
     });

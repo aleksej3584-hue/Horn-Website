@@ -23,7 +23,7 @@ ARROW = '<svg aria-hidden="true"><use href="#arrow"/></svg>'
 MORE_ARROW = '<svg viewBox="0 0 21.5 18" aria-hidden="true"><path d="M0 9H20.1M12.1 1L20.1 9L12.1 17" fill="none" stroke="currentColor" stroke-width="2"/></svg>'
 
 LOGO_SVG = '''<svg viewBox="0 0 46 46" aria-hidden="true">
-          <path d="M3.5 13.5L10 6.5H36L42.5 13.5V42.5H3.5Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="miter"/>
+          <path d="M3.5 13.5L10 6.5H36L42.5 13.5V42.5H3.5Z" fill="none" style="stroke:var(--ink)" stroke-width="3" stroke-linejoin="miter"/>
           <path d="M30 11V33M24.5 27.5L30 33.5L35.5 27.5" fill="none" style="stroke:var(--acc)" stroke-width="3" stroke-linecap="butt"/>
           <path d="M8.5 36.5H11M13.5 36.5H16M18.5 36.5H21M36 36.5H38.5" fill="none" style="stroke:var(--acc)" stroke-width="2.4" stroke-linecap="butt"/>
         </svg>'''
@@ -199,7 +199,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 <title>{e(title)}</title>
 <meta name="description" content="{html.escape(desc)}">{robots}
 <link rel="canonical" href="{canonical}">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#fafaf8">
 <meta property="og:title" content="{html.escape(title)}">
 <meta property="og:description" content="{html.escape(desc)}">
 <meta property="og:type" content="website">
@@ -660,19 +660,19 @@ NOT_FOUND = '''<!DOCTYPE html>
 <title>Seite nicht gefunden – Horn Elektrische Anlagen</title>
 <meta name="robots" content="noindex">
 <style>
-:root{color-scheme:dark}
-html,body{height:100%;margin:0;background:#000;color:#fff}
+:root{color-scheme:light}
+html,body{height:100%;margin:0;background:#fafaf8;color:#121212}
 body{display:flex;flex-direction:column;justify-content:center;padding:0 max(20px,6vw);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:radial-gradient(ellipse 55% 65% at 84% 18%,rgba(251,186,0,.12),transparent 70%) #000}
+  background:radial-gradient(ellipse 55% 65% at 84% 18%,rgba(251,186,0,.16),transparent 70%) #fafaf8}
 p{margin:0}
-.eye{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#949494;display:flex;gap:12px;align-items:center}
+.eye{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#6e6e6e;display:flex;gap:12px;align-items:center}
 .eye::before{content:"";width:22px;height:2px;background:#fbba00}
 h1{margin:22px 0 0;font-size:clamp(38px,6vw,76px);line-height:1.05;letter-spacing:-.035em;max-width:14em}
-.lead{margin-top:22px;font-family:ui-monospace,Menlo,monospace;color:#e6e6e6;font-size:16px;line-height:1.6}
+.lead{margin-top:22px;font-family:ui-monospace,Menlo,monospace;color:#3b3b3b;font-size:16px;line-height:1.6}
 .row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 a{display:inline-flex;align-items:center;height:52px;padding:0 22px;background:#fbba00;color:#0b0b0b;text-decoration:none;font-size:18px}
-a.g{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.28)}
-a:focus-visible{outline:2px solid #fff;outline-offset:3px}
+a.g{background:transparent;color:#121212;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+a:focus-visible{outline:2px solid #121212;outline-offset:3px}
 </style>
 </head>
 <body>
@@ -697,7 +697,7 @@ def redirect(target):
 <html lang="de"><head><meta charset="utf-8"><title>Weiterleitung</title>
 <meta name="robots" content="noindex"><link rel="canonical" href="{DOMAIN}{target}">
 <meta http-equiv="refresh" content="0; url=../{target}"></head>
-<body style="background:#000;color:#fff;font-family:system-ui,sans-serif;padding:24px"><a style="color:#fbba00" href="../{target}">Weiter zur Seite</a></body></html>
+<body style="background:#fafaf8;color:#121212;font-family:system-ui,sans-serif;padding:24px"><a style="color:#8a5a00" href="../{target}">Weiter zur Seite</a></body></html>
 '''
 
 
