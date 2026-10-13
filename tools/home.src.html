@@ -24,7 +24,7 @@
   --acc:#fbba00; --acc-d:#e0a500; --on-acc:#0b0b0b;
   --ink:#fff; --sub:#e6e6e6; --lab:#949494;
   --bx:60; --by:36; --bs:44;
-  --h1y:-12.5; --suby:167.5; --numy:19; --laby:74;
+  --h1y:-12.5; --suby:167.5; --numy:19; --laby:74; --kicky:-46;
 
   --lx:60; --ly:35; --logo:45; --wmfs:24; --wmsfs:10.6; --wmgap:14;
   --hdh:88; --heroh:306; --stath:112;
@@ -39,7 +39,7 @@
   :root{
     --s:clamp(0.82px, min(100vw / 900, 100vh / 1200), 1.25px);
     --bx:56; --by:33; --bs:40;
-    --h1y:-10.25; --suby:137.4; --numy:15.6; --laby:60.7;
+    --h1y:-10.25; --suby:137.4; --numy:15.6; --laby:60.7; --kicky:-40;
     --lx:56; --ly:33; --logo:40; --wmfs:21; --wmsfs:9.6; --wmgap:12;
     --hdh:73; --heroh:251; --stath:92;
     --tx:66.7; --h1fs:56.3; --h1lh:62.3; --h1ls:-1.97;
@@ -54,7 +54,7 @@
   :root{
     --s:min(100vw / 430, 100vh / 620, 1.02px);
     --bx:26; --by:21; --bs:34;
-    --h1y:-7.1; --suby:108; --numy:13; --laby:50;
+    --h1y:-7.1; --suby:108; --numy:13; --laby:50; --kicky:-34;
     --lx:26; --ly:21; --logo:34; --wmfs:18.5; --wmsfs:8.6; --wmgap:10;
     --hdh:60; --heroh:215; --stath:76;
     --tx:28; --h1fs:39; --h1lh:43.2; --h1ls:-1.36;
@@ -77,14 +77,15 @@ ul{list-style:none;margin:0;padding:0}
 .svgdefs{position:absolute;width:0;height:0;overflow:hidden}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* ---------- stage + video ---------- */
+/* ---------- stage: animated installation diagram ---------- */
 .screen{position:fixed;inset:0;overflow:hidden;background:#000}
-.bg,.bg2{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.bg{filter:url(#grade);background:radial-gradient(ellipse 60% 70% at 80% 28%,rgba(251,186,0,.13),rgba(251,186,0,.04) 45%,transparent 70%),radial-gradient(ellipse 45% 55% at 92% 8%,rgba(255,255,255,.07),transparent 70%)}
-.bg video,.bg2 video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
-.bg2{filter:url(#grade2);mix-blend-mode:plus-lighter;opacity:.35;
-  -webkit-mask-image:linear-gradient(180deg,transparent 21.5%,#000 100%);mask-image:linear-gradient(180deg,transparent 21.5%,#000 100%)}
-.scrim{position:absolute;inset:0;pointer-events:none;display:none}
+.circuit{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0 40%,#000 60%);mask-image:linear-gradient(90deg,transparent 0 40%,#000 60%)}
+.cable{display:inline-block;flex:none;width:calc(34 * var(--s));min-width:26px;height:3px;
+  background:repeating-linear-gradient(135deg,#84ba34 0 2px,#fbba00 2px 4px) right / 18% 100% no-repeat,
+    linear-gradient(90deg,#8b5a2b 0 18%,transparent 18% 20.5%,#3a3a3a 20.5% 38.5%,transparent 38.5% 41%,#9a9a9a 41% 59%,transparent 59% 61.5%,#2f6fd0 61.5% 79.5%,transparent 79.5%)}
+.kick{position:absolute;left:calc(var(--tx) * var(--s));top:calc(var(--kicky) * var(--s));margin:0;display:flex;align-items:center;gap:calc(12 * var(--s));
+  font-family:'JB';font-size:max(10.5px, calc(12.5 * var(--s)));letter-spacing:.2em;text-transform:uppercase;color:var(--lab);white-space:nowrap}
 
 /* ---------- frame ---------- */
 .frame{position:absolute;inset:0;display:flex;flex-direction:column}
@@ -167,9 +168,7 @@ nav.nav > ul{display:flex;height:100%;align-items:center}
 .menu{display:none;position:absolute;inset:0;z-index:5;background:#000;opacity:0;visibility:hidden;
   transition:opacity .35s cubic-bezier(.22,1,.36,1),visibility 0s .35s}
 .nav-open .menu{opacity:1;visibility:visible;transition:opacity .35s cubic-bezier(.22,1,.36,1)}
-.menu-tex{position:absolute;inset:0;opacity:.4;pointer-events:none;filter:url(#grade2);
-  -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 34%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,transparent 34%,#000 100%)}
-.menu-tex video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% top;display:block}
+.menu-tex{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 80% 55% at 78% 92%,rgba(251,186,0,.10),transparent 70%)}
 .menu-in{position:relative;height:100%;display:flex;flex-direction:column;
   padding:calc((var(--by) + var(--bs) + 26) * var(--s)) calc(var(--bx) * var(--s)) calc(26 * var(--s) + env(safe-area-inset-bottom))}
 .menu-rule{position:absolute;left:calc(var(--bx) * var(--s));right:calc(var(--bx) * var(--s));top:calc((var(--by) + var(--bs) + 12) * var(--s));
@@ -223,25 +222,13 @@ nav.nav > ul{display:flex;height:100%;align-items:center}
   .menu{display:block}
 }
 
-/* ---------- tablet portrait video ---------- */
+/* ---------- portrait: diagram sits above the text ---------- */
 @media (max-width:1023px) and (max-aspect-ratio:1/1){
-  .bg2{display:none}
-  .bg video{object-position:right top;transform:scale(1.18);transform-origin:right top}
-  .bg{-webkit-mask-image:linear-gradient(180deg,#000 0 40%,transparent 64%);mask-image:linear-gradient(180deg,#000 0 40%,transparent 64%)}
-  .scrim{display:block;background:linear-gradient(100deg,#000 26%,rgba(0,0,0,.74) 50%,rgba(0,0,0,.18) 76%,transparent 92%)}
-}
-
-/* ---------- phone video ---------- */
-@media (max-width:599px){
-  .bg{-webkit-mask-image:none;mask-image:none}
-  .bg video{transform:none;object-position:78% top}
-  .bg2{display:block;-webkit-mask-image:linear-gradient(180deg,transparent 10%,#000 60%);mask-image:linear-gradient(180deg,transparent 10%,#000 60%)}
-  .bg2 video{object-position:78% top}
-  .scrim{display:block;background:linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.50) 24%,rgba(0,0,0,.86) 42%,#000 66%)}
+  .circuit{-webkit-mask-image:linear-gradient(180deg,#000 0 30%,transparent 39%);mask-image:linear-gradient(180deg,#000 0 30%,transparent 39%)}
 }
 
 /* ---------- entrance: initial state (armed before paint) ---------- */
-html.intro .logo,html.intro .ni,html.intro .burger,html.intro .sub,html.intro .num,html.intro .lab,html.intro .legal{opacity:0}
+html.intro .logo,html.intro .ni,html.intro .burger,html.intro .sub,html.intro .num,html.intro .lab,html.intro .legal,html.intro .kick{opacity:0}
 html.intro .logo{transform:scale(.9)}
 html.intro .ni{transform:translateY(calc(7 * var(--s)))}
 html.intro .sub{transform:translateY(calc(14 * var(--s)))}
@@ -265,28 +252,12 @@ html.intro h1 .ln > span{transform:translateY(120%)}
 <body>
 
 <svg class="svgdefs" aria-hidden="true" focusable="false">
-  <filter id="grade" color-interpolation-filters="sRGB">
-    <feComponentTransfer>
-      <feFuncR type="table" tableValues="0.0018 0.0105 0.0154 0.0228 0.0307 0.0404 0.0485 0.0585 0.0719 0.0923 0.1205 0.1466 0.1657 0.1866 0.2197 0.2405 0.2485 0.2921 0.3362 0.3465 0.3472 0.3781 0.3781 0.4078 0.4199 0.4391 0.4604 0.4763 0.4798 0.5197 0.5473 0.5720 0.5995 0.6048 0.6232 0.6322 0.6483 0.6734 0.7201 0.7201 0.7410 0.7707 0.7707 0.7790 0.8084 0.8084 0.8390 0.8595 0.8707 0.8870 0.8993 0.9085 0.9132 0.9132 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9238 0.9300"/>
-      <feFuncG type="table" tableValues="0.0023 0.0106 0.0159 0.0250 0.0333 0.0445 0.0535 0.0620 0.0707 0.0827 0.0936 0.1063 0.1214 0.1402 0.1678 0.1727 0.2029 0.2176 0.2461 0.2757 0.2814 0.3050 0.3415 0.3692 0.3826 0.3884 0.4617 0.4617 0.4617 0.4643 0.4643 0.4808 0.5706 0.6005 0.6005 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6524 0.6664 0.6805 0.6945 0.7086 0.7227 0.7367 0.7508 0.7648 0.7789 0.7929 0.8070 0.8211 0.8351 0.8492 0.8632 0.8773 0.8913 0.9054 0.9195 0.9300"/>
-      <feFuncB type="table" tableValues="0.0021 0.0110 0.0187 0.0311 0.0377 0.0466 0.0584 0.0706 0.0791 0.0924 0.1039 0.1145 0.1316 0.1464 0.1614 0.1719 0.1887 0.2014 0.2247 0.2458 0.2954 0.2954 0.3089 0.3938 0.3938 0.3988 0.3988 0.4581 0.4581 0.4762 0.4762 0.4763 0.5374 0.5560 0.5813 0.5813 0.5813 0.5813 0.5835 0.5969 0.6104 0.6238 0.6373 0.6507 0.6642 0.6777 0.6911 0.7046 0.7181 0.7315 0.7449 0.7584 0.7719 0.7853 0.7988 0.8123 0.8257 0.8391 0.8526 0.8661 0.8795 0.8930 0.9065 0.9199 0.9300"/>
-    </feComponentTransfer>
-  </filter>
-  <filter id="grade2" color-interpolation-filters="sRGB">
-    <feComponentTransfer>
-      <feFuncR type="table" tableValues="0.0016 0.0092 0.0136 0.0201 0.0270 0.0356 0.0427 0.0515 0.0633 0.0812 0.1060 0.1290 0.1458 0.1642 0.1933 0.2116 0.2187 0.2570 0.2959 0.3049 0.3055 0.3327 0.3327 0.3589 0.3695 0.3864 0.4052 0.4191 0.4222 0.4573 0.4816 0.5034 0.5276 0.5322 0.5484 0.5563 0.5705 0.5926 0.6337 0.6337 0.6521 0.6782 0.6782 0.6855 0.7114 0.7114 0.7383 0.7564 0.7662 0.7806 0.7914 0.7995 0.8036 0.8036 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8129 0.8184"/>
-      <feFuncG type="table" tableValues="0.0015 0.0069 0.0103 0.0163 0.0216 0.0289 0.0348 0.0403 0.0460 0.0538 0.0608 0.0691 0.0789 0.0911 0.1091 0.1123 0.1319 0.1414 0.1600 0.1792 0.1829 0.1983 0.2220 0.2400 0.2487 0.2525 0.3001 0.3001 0.3001 0.3018 0.3018 0.3125 0.3709 0.3903 0.3903 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4241 0.4332 0.4423 0.4514 0.4606 0.4698 0.4789 0.4880 0.4971 0.5063 0.5154 0.5246 0.5337 0.5428 0.5520 0.5611 0.5702 0.5793 0.5885 0.5977 0.6045"/>
-      <feFuncB type="table" tableValues="0.0013 0.0066 0.0112 0.0187 0.0226 0.0280 0.0350 0.0424 0.0475 0.0554 0.0623 0.0687 0.0790 0.0878 0.0968 0.1031 0.1132 0.1208 0.1348 0.1475 0.1772 0.1772 0.1853 0.2363 0.2363 0.2393 0.2393 0.2749 0.2749 0.2857 0.2857 0.2858 0.3224 0.3336 0.3488 0.3488 0.3488 0.3488 0.3501 0.3581 0.3662 0.3743 0.3824 0.3904 0.3985 0.4066 0.4147 0.4228 0.4309 0.4389 0.4469 0.4550 0.4631 0.4712 0.4793 0.4874 0.4954 0.5035 0.5116 0.5197 0.5277 0.5358 0.5439 0.5519 0.5580"/>
-    </feComponentTransfer>
-  </filter>
   <symbol id="arrow" viewBox="0 0 21.5 18"><path d="M0 9H20.1M12.1 1L20.1 9L12.1 17" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="chev" viewBox="0 0 11 6.5"><path d="M1 1L5.5 5L10 1" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
 </svg>
 
 <div class="screen">
-  <div class="bg" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
-  <div class="bg2" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
-  <div class="scrim" aria-hidden="true"></div>
+  <canvas class="circuit" aria-hidden="true"></canvas>
 
   <div class="frame">
     <header>
@@ -338,6 +309,7 @@ html.intro h1 .ln > span{transform:translateY(120%)}
     <div class="sp sp-a"></div>
 
     <section class="hero" aria-labelledby="h1">
+      <p class="kick"><span class="cable" aria-hidden="true"></span>Meisterbetrieb seit 1993</p>
       <h1 id="h1">
         <span class="ln"><span>Elektrotechnik, die</span></span>
         <span class="ln"><span>einfach funktioniert</span></span>
@@ -364,7 +336,7 @@ html.intro h1 .ln > span{transform:translateY(120%)}
   <p class="legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
 
   <div id="menu" class="menu" aria-hidden="true" inert>
-    <div class="menu-tex" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
+    <div class="menu-tex" aria-hidden="true"></div>
     <div class="menu-in">
       <span class="menu-rule" aria-hidden="true"></span>
       <p class="menu-eye">Menü</p>
@@ -403,22 +375,24 @@ html.intro h1 .ln > span{transform:translateY(120%)}
   </div>
 </div>
 
+<script>__CIRCUIT__</script>
 <script>
 (function(){
   var doc=document.documentElement, body=document.body;
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- video: keep the three plates in sync ---------- */
-  var vids=[].slice.call(document.querySelectorAll('video'));
-  if(reduce){
-    vids.forEach(function(v){v.removeAttribute('autoplay');v.pause();});
-  }else{
-    var master=vids[0];
-    vids.forEach(function(v){v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});
-    master.addEventListener('timeupdate',function(){
-      for(var i=1;i<vids.length;i++){
-        if(Math.abs(vids[i].currentTime-master.currentTime)>0.12){vids[i].currentTime=master.currentTime;}
-      }
+  /* ---------- background: installation diagram ---------- */
+  var cv=document.querySelector('.circuit');
+  if(cv&&window.hornCircuit){
+    var portrait=function(W,H){return W<=1023&&W<=H;};
+    window.hornCircuit(cv,{
+      region:function(W,H){
+        if(portrait(W,H))return {x0:W*0.07,y0:H*0.1,x1:W*0.93,y1:H*0.29};
+        return {x0:W*0.5,y0:H*0.2,x1:W-Math.max(40,W*0.04),y1:H*0.82};
+      },
+      circuits:function(W,H){return portrait(W,H)?2:4;},
+      grid:function(W,H){return portrait(W,H)?(W<600?15:20):Math.max(18,Math.min(28,Math.round(H/30)));},
+      maxPulses:5
     });
   }
 
@@ -487,6 +461,7 @@ html.intro h1 .ln > span{transform:translateY(120%)}
     run(q('.burger'),[{opacity:0},{opacity:1}],.18,.55,QUART);
     run(q('.btn-top'),wipe,.28,.66,EXPO);
     run(q('h1 .ln > span'),[{transform:'translateY(120%)'},{transform:'translateY(0%)'}],.34,.98,TYPE,.09);
+    run(q('.kick'),rise(8),.26,.62,QUINT);
     run(q('.sub'),rise(14),.74,.72,QUINT);
     run(q('.btn-cta'),wipe,.90,.70,EXPO);
     run(q('.rule'),[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],.98,.60,QUART,.07);

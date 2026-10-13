@@ -218,7 +218,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 {SVGDEFS}
-<div class="page-glow" aria-hidden="true"></div>
+<div class="page-glow" aria-hidden="true"><canvas class="circuit"></canvas></div>
 {header(active or file)}
 
 <main id="inhalt">
@@ -226,6 +226,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 </main>
 
 {footer()}
+<script src="assets/circuit.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
@@ -282,6 +283,20 @@ def related(keys):
 
 
 # ---------------------------------------------------------------- Leistungen
+ICONS = {
+    'knx': '<path d="M4 15.5L16 5l12 10.5V28H4z"/><path d="M9 22h14"/><circle cx="9" cy="22" r="1.6" fill="currentColor" stroke="none"/><circle cx="16" cy="22" r="1.6" fill="currentColor" stroke="none"/><circle cx="23" cy="22" r="1.6" fill="currentColor" stroke="none"/>',
+    'datentechnik': '<rect x="6" y="6" width="20" height="14"/><path d="M10 6v4M13 6v4M16 6v4M19 6v4M22 6v4"/><path d="M12 20v4h8v-4M16 24v5"/>',
+    'pruefung': '<rect x="8" y="3.5" width="16" height="25"/><rect x="11" y="7" width="10" height="6"/><circle cx="16" cy="20.5" r="4"/><path d="M16 20.5l2.6-2.6"/>',
+    'notbeleuchtung': '<rect x="3.5" y="9" width="25" height="14"/><path d="M9 16h12M17 12l4 4-4 4"/>',
+    'schaltanlagenbau': '<rect x="6" y="3.5" width="20" height="25"/><path d="M6 10.5h20M6 18h20"/><path d="M10 12.5v3.5M13.5 12.5v3.5M17 12.5v3.5M20.5 12.5v3.5"/><path d="M10 5.5v3M13.5 5.5v3"/>',
+    'sicherheit': '<rect x="8" y="14" width="16" height="13"/><path d="M11 14v-3.5a5 5 0 0 1 10 0V14"/><circle cx="16" cy="19.5" r="1.6"/><path d="M16 21v2.5"/>',
+}
+
+
+def icon(key):
+    return f'<svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">{ICONS[key]}</svg>'
+
+
 SERVICES = [
     ('knx', 'KNX', 'Intelligente Gebäudesteuerung mit KNX', [
         ('p', 'Energieeffizient, komfortabel, sicher und flexibel: KNX ist der weltweite Standard für die Haus- und Gebäudeautomation. Sonnenschutz, Licht, Klimaanlage, Heizung und Sicherheitssysteme lassen sich damit zentral über ein Bedienelement steuern.'),
@@ -323,7 +338,7 @@ SERVICES = [
 
 def leistungen():
     idx = '\n'.join(
-        f'      <a href="#{k}"><b>{e(t)}</b><span>{e(lbl)}</span></a>'
+        f'      <a href="#{k}">{icon(k)}<b>{e(t)}</b><span>{e(lbl)}</span></a>'
         for (k, t), (_, lbl, _h, _c) in zip(SERVICES_NAV, SERVICES))
     blocks = []
     for key, lbl, h2, content in SERVICES:
@@ -331,7 +346,7 @@ def leistungen():
         for kind, txt in content:
             parts.append(f'      <{kind}>{e(txt)}</{kind}>')
         parts.append(more(f'kontakt.html?thema={key}#anfrage', 'Anfrage zu diesem Thema'))
-        blocks.append(block(e(lbl), '\n'.join(parts), key))
+        blocks.append(block(icon(key) + e(lbl), '\n'.join(parts), key))
     body = '\n'.join([
         hero('Leistungen',
              'Elektrotechnik für Wohnhaus, Gewerbe und Industrie.',
@@ -617,15 +632,12 @@ def datenschutz():
         <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einem Vertrag oder vorvertraglichen Maßnahmen zusammenhängt, sonst Art. 6 Abs. 1 lit. f DSGVO. Wir geben Ihre Daten nicht ohne Ihre Einwilligung weiter und löschen sie, sobald sie nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
 
         <h2>5. Schriftarten</h2>
-        <p>Die verwendeten Schriftarten (Space Grotesk und JetBrains Mono) sind lokal auf dieser Website eingebunden. Beim Laden der Seite wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern aufgebaut.</p>
+        <p>Die verwendeten Schriftarten (Space Grotesk und JetBrains Mono) sind lokal auf dieser Website eingebunden. Beim Laden der Seite wird keine Verbindung zu Servern von Google oder anderen Anbietern aufgebaut. Die Website lädt keine Inhalte von fremden Servern.</p>
 
-        <h2>6. Hintergrundvideo</h2>
-        <p>Das Hintergrundvideo der Startseite wird von einem Content-Delivery-Netzwerk (Amazon CloudFront, Amazon Web Services EMEA SARL, 38 Avenue John F. Kennedy, L-1855 Luxemburg) geladen. Dabei wird Ihre IP-Adresse an diesen Anbieter übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist eine schnelle und ansprechende Darstellung der Website.</p>
-
-        <h2>7. SSL-/TLS-Verschlüsselung</h2>
+        <h2>6. SSL-/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol und an „https://“ in der Adresszeile Ihres Browsers.</p>
 
-        <h2>8. Ihre Rechte</h2>
+        <h2>7. Ihre Rechte</h2>
         <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), auf Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Wenden Sie sich dazu an die oben genannten Kontaktdaten.</p>
         <p>Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist die Landesbeauftragte für den Datenschutz Niedersachsen, Prinzenstraße 5, 30159 Hannover.</p>
 
@@ -704,7 +716,8 @@ def main():
     fonts = os.path.join(ROOT, 'assets', 'fonts')
     b64 = lambda n: base64.b64encode(open(os.path.join(fonts, n), 'rb').read()).decode()
     home = open(os.path.join(ROOT, 'tools', 'home.src.html'), encoding='utf-8').read()
-    write('index.html', home.replace('__SG__', b64('sg.woff2')).replace('__JB__', b64('jb.woff2')))
+    circuit = open(os.path.join(ROOT, 'assets', 'circuit.js'), encoding='utf-8').read()
+    write('index.html', home.replace('__SG__', b64('sg.woff2')).replace('__JB__', b64('jb.woff2')).replace('__CIRCUIT__', circuit))
 
     pages = {
         'leistungen.html': leistungen(),

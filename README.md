@@ -6,7 +6,7 @@ Neue Website für **Thomas Horn Elektrische Anlagen**, Bromberger Str. 24a, 2162
 
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite (Vollbild mit Video, eigenständige Datei mit eingebetteten Schriften) |
+| `index.html` | Startseite (Vollbild mit animiertem Installationsplan, eigenständige Datei mit eingebetteten Schriften) |
 | `leistungen.html` | Alle 11 Leistungen in 6 Bereichen, mit Sprungmarken (`#knx`, `#datentechnik`, `#pruefung`, `#notbeleuchtung`, `#schaltanlagenbau`, `#sicherheit`) |
 | `beratung.html`, `planung.html`, `herstellung.html`, `wartung.html` | Ablauf in 4 Schritten |
 | `ueber-uns.html`, `ausbildung.html` | Unternehmen |
@@ -26,6 +26,8 @@ python3 tools/build.py
 ```
 
 Gemeinsames Design der Unterseiten: `assets/site.css`, Verhalten (Menü, Formular): `assets/site.js`.
+Animierter Installationsplan (Hintergrund): `assets/circuit.js`, wird in die Startseite eingebettet.
+Die Website lädt nichts von fremden Servern.
 
 ## Offene Punkte (vom Kunden)
 
@@ -39,7 +41,6 @@ Auf den Seiten gelb markiert:
 Außerdem:
 
 - **Texte als Entwurf neu geschrieben** (gab es auf der alten Seite nicht): Sprechanlagen, Sicherheitstechnik, Zutrittskontrollen, Schließanlagen, dazu die Seite Ausbildung. Bitte vom Kunden prüfen lassen.
-- **Hintergrundvideo:** wird von Amazon CloudFront geladen (in der Datenschutzerklärung erwähnt). Besser: Video-Datei selbst hosten und die URL in `tools/home.src.html` ersetzen.
 - **Fotos, Referenzen, Zertifikate:** fehlen noch komplett.
 - **Logo:** neu als einfaches SVG-Zeichen nachgebaut. Original als Vektordatei anfragen.
 

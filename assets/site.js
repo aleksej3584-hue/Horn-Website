@@ -9,6 +9,23 @@
     setTimeout(reveal,900);
   }
 
+  /* ---------- background: installation diagram ---------- */
+  var cv=document.querySelector('.page-glow .circuit');
+  if(cv&&window.hornCircuit){
+    var portrait=function(W,H){return W<=1023&&innerWidth<=innerHeight;};
+    window.hornCircuit(cv,{
+      region:function(W,H){
+        if(portrait(W,H))return {x0:W*0.42,y0:H*0.1,x1:W*0.95,y1:H*0.3};
+        return {x0:W*0.67,y0:H*0.15,x1:W-Math.max(40,W*0.04),y1:H*0.64};
+      },
+      circuits:function(W,H){return 2;},
+      grid:function(W,H){return portrait(W,H)?15:Math.max(18,Math.min(26,Math.round(innerHeight/32)));},
+      alpha:0.85,
+      maxPulses:3,
+      seed:7
+    });
+  }
+
   /* ---------- header state ---------- */
   var head=document.querySelector('.site-head');
   function onScroll(){if(head)head.classList.toggle('scrolled',window.scrollY>8);}

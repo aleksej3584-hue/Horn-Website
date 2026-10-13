@@ -55,9 +55,16 @@ h1,h2,h3,p{margin:0}
 .svgdefs{position:absolute;width:0;height:0;overflow:hidden}
 .skip{position:absolute;left:var(--gut);top:-80px;z-index:50;background:var(--acc);color:var(--on-acc);padding:10px 16px;font-family:var(--f-mono);font-size:14px}
 .skip:focus{top:12px}
-.page-glow{position:absolute;inset:0 0 auto 0;height:min(980px, 120vh);pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse 55% 65% at 84% 18%,rgba(251,186,0,.12),rgba(251,186,0,.035) 45%,transparent 70%),
-             radial-gradient(ellipse 40% 50% at 96% 0%,rgba(255,255,255,.06),transparent 70%)}
+.page-glow{position:absolute;inset:0 0 auto 0;height:min(860px, 105vh);pointer-events:none;z-index:0;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 62%,transparent 96%);mask-image:linear-gradient(180deg,#000 0 62%,transparent 96%)}
+.page-glow .circuit{position:absolute;inset:0;width:100%;height:100%;display:block;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0 58%,#000 80%);mask-image:linear-gradient(90deg,transparent 0 58%,#000 80%)}
+@media (max-width:1023px) and (max-aspect-ratio:1/1){
+  .page-glow .circuit{opacity:.55;-webkit-mask-image:linear-gradient(180deg,#000 0 22%,transparent 34%);mask-image:linear-gradient(180deg,#000 0 22%,transparent 34%)}
+}
+.ico{width:34px;height:34px;color:var(--acc);display:block;flex:none}
+.block-label .ico{margin-bottom:16px;width:40px;height:40px}
+.index a .ico{width:30px;height:30px;margin-bottom:8px}
 main{position:relative;z-index:1}
 .wrap{padding-inline:var(--gut)}
 
@@ -161,7 +168,9 @@ nav.nav > ul{display:flex;height:100%;align-items:center}
 .phero{padding-block:clamp(48px, 11vh, 132px) clamp(44px, 8vh, 96px);display:flex;flex-direction:column;align-items:flex-start}
 .phero > *{max-width:100%}
 .eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:12.5px;line-height:1.3;letter-spacing:.2em;text-transform:uppercase;color:var(--lab)}
-.eyebrow::before{content:"";width:22px;height:2px;background:var(--acc);flex:none}
+.eyebrow::before{content:"";width:34px;height:3px;flex:none;
+  background:repeating-linear-gradient(135deg,#84ba34 0 2px,#fbba00 2px 4px) right / 18% 100% no-repeat,
+    linear-gradient(90deg,#8b5a2b 0 18%,transparent 18% 20.5%,#3a3a3a 20.5% 38.5%,transparent 38.5% 41%,#9a9a9a 41% 59%,transparent 59% 61.5%,#2f6fd0 61.5% 79.5%,transparent 79.5%)}
 .eyebrow a{transition:color .2s}
 .phero h1{margin-top:26px;font-family:var(--f-display);font-weight:700;font-size:clamp(38px, calc(68.7 * var(--s)), 84px);line-height:1.08;letter-spacing:-.035em;max-width:min(15.5em, 100%);text-wrap:balance;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}
 .lead{margin-top:28px;font-family:var(--f-mono);font-size:clamp(15px, calc(18.7 * var(--s)), 19px);line-height:1.6;letter-spacing:-.03em;color:var(--sub);max-width:54ch}

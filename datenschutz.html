@@ -28,7 +28,7 @@
   <symbol id="arrow" viewBox="0 0 21.5 18"><path d="M0 9H20.1M12.1 1L20.1 9L12.1 17" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="chev" viewBox="0 0 11 6.5"><path d="M1 1L5.5 5L10 1" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
 </svg>
-<div class="page-glow" aria-hidden="true"></div>
+<div class="page-glow" aria-hidden="true"><canvas class="circuit"></canvas></div>
 <header class="site-head">
   <a class="logo" href="index.html" aria-label="Horn Elektrische Anlagen – Startseite">
         <svg viewBox="0 0 46 46" aria-hidden="true">
@@ -140,15 +140,12 @@
         <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, wenn Ihre Anfrage mit einem Vertrag oder vorvertraglichen Maßnahmen zusammenhängt, sonst Art. 6 Abs. 1 lit. f DSGVO. Wir geben Ihre Daten nicht ohne Ihre Einwilligung weiter und löschen sie, sobald sie nicht mehr erforderlich sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
 
         <h2>5. Schriftarten</h2>
-        <p>Die verwendeten Schriftarten (Space Grotesk und JetBrains Mono) sind lokal auf dieser Website eingebunden. Beim Laden der Seite wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern aufgebaut.</p>
+        <p>Die verwendeten Schriftarten (Space Grotesk und JetBrains Mono) sind lokal auf dieser Website eingebunden. Beim Laden der Seite wird keine Verbindung zu Servern von Google oder anderen Anbietern aufgebaut. Die Website lädt keine Inhalte von fremden Servern.</p>
 
-        <h2>6. Hintergrundvideo</h2>
-        <p>Das Hintergrundvideo der Startseite wird von einem Content-Delivery-Netzwerk (Amazon CloudFront, Amazon Web Services EMEA SARL, 38 Avenue John F. Kennedy, L-1855 Luxemburg) geladen. Dabei wird Ihre IP-Adresse an diesen Anbieter übermittelt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO; unser berechtigtes Interesse ist eine schnelle und ansprechende Darstellung der Website.</p>
-
-        <h2>7. SSL-/TLS-Verschlüsselung</h2>
+        <h2>6. SSL-/TLS-Verschlüsselung</h2>
         <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie am Schloss-Symbol und an „https://“ in der Adresszeile Ihres Browsers.</p>
 
-        <h2>8. Ihre Rechte</h2>
+        <h2>7. Ihre Rechte</h2>
         <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), auf Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Wenden Sie sich dazu an die oben genannten Kontaktdaten.</p>
         <p>Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist die Landesbeauftragte für den Datenschutz Niedersachsen, Prinzenstraße 5, 30159 Hannover.</p>
 
@@ -207,6 +204,7 @@
     <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>
+<script src="assets/circuit.js" defer></script>
 <script src="assets/site.js" defer></script>
 </body>
 </html>
