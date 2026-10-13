@@ -9,6 +9,7 @@
 - Weiterleitungen von den alten WordPress-Adressen, sitemap.xml, robots.txt, 404.html.
 """
 import base64
+import hashlib
 import html
 import os
 
@@ -188,6 +189,10 @@ SVGDEFS = '''<svg class="svgdefs" aria-hidden="true" focusable="false">
 </svg>'''
 
 
+def ver(rel):
+    return hashlib.sha1(open(os.path.join(ROOT, rel), 'rb').read()).hexdigest()[:8]
+
+
 def page(file, title, desc, body, active=None, noindex=False):
     canonical = DOMAIN + ('' if file == 'index.html' else file)
     robots = '\n<meta name="robots" content="noindex">' if noindex else ''
@@ -208,7 +213,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/sg.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jb.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v={ver('assets/site.css')}">
 <script>
 (function(){{var d=document.documentElement;
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
@@ -226,8 +231,8 @@ def page(file, title, desc, body, active=None, noindex=False):
 </main>
 
 {footer()}
-<script src="assets/circuit.js" defer></script>
-<script src="assets/site.js" defer></script>
+<script src="assets/circuit.js?v={ver('assets/circuit.js')}" defer></script>
+<script src="assets/site.js?v={ver('assets/site.js')}" defer></script>
 </body>
 </html>
 '''
