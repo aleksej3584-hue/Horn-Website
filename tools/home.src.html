@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Horn Elektrische Anlagen – Elektrotechnik seit 1993</title>
+<meta name="description" content="Thomas Horn Elektrische Anlagen in Neu Wulmstorf: Beratung, Planung, Installation und Wartung. KNX, Daten- und Glasfasertechnik, Anlagenprüfung, Notbeleuchtung, Schaltanlagenbau. Meisterbetrieb seit 1993.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Horn Elektrische Anlagen – Elektrotechnik seit 1993">
+<meta property="og:description" content="Beratung, Planung, Installation und Wartung. Ihr Meisterbetrieb in Neu Wulmstorf.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://horn-elektro.de/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 46'%3E%3Crect width='46' height='46' fill='%23000'/%3E%3Cpath d='M3.5 13.5L10 6.5H36L42.5 13.5V42.5H3.5Z' fill='none' stroke='%23fff' stroke-width='3'/%3E%3Cpath d='M30 11V33M24.5 27.5L30 33.5L35.5 27.5' fill='none' stroke='%23fbba00' stroke-width='3'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Electrician","name":"Thomas Horn Elektrische Anlagen","url":"https://horn-elektro.de/","telephone":"+49 40 7006101","email":"info@horn-elektro.de","foundingDate":"1993","founder":{"@type":"Person","name":"Thomas Horn"},"address":{"@type":"PostalAddress","streetAddress":"Bromberger Str. 24a","postalCode":"21629","addressLocality":"Neu Wulmstorf","addressCountry":"DE"}}
+</script>
+<style>
+@font-face{font-family:'SG';font-style:normal;font-weight:300 700;font-display:block;src:url(data:font/woff2;base64,__SG__) format('woff2')}
+@font-face{font-family:'JB';font-style:normal;font-weight:400 500;font-display:block;src:url(data:font/woff2;base64,__JB__) format('woff2')}
+
+/* ---------- tokens / canvas scaler ---------- */
+:root{
+  --s:min(100vw / 1505, 100vh / 700);
+  --acc:#fbba00; --acc-d:#e0a500; --on-acc:#0b0b0b;
+  --ink:#fff; --sub:#e6e6e6; --lab:#949494;
+  --bx:60; --by:36; --bs:44;
+  --h1y:-12.5; --suby:167.5; --numy:19; --laby:74;
+
+  --lx:60; --ly:35; --logo:45; --wmfs:24; --wmsfs:10.6; --wmgap:14;
+  --hdh:88; --heroh:306; --stath:112;
+  --tx:73; --h1fs:68.7; --h1lh:76; --h1ls:-2.4;
+  --subfs:18.7; --sublh:26; --subls:-0.87; --ctay:248;
+  --btnw:212; --btnh:58; --btnpl:18; --btnpr:22; --btngap:11; --btnfs:20.85; --arw:21.5; --arh:18;
+  --numfs:33.45; --labfs:21.9; --labls:-0.62;
+  --s1x:70.4; --r1x:196; --s2x:228; --r2x:371; --s3x:407; --ruley:2; --ruleh:104;
+  --mrowfs:40; --msubfs:15;
+}
+@media (max-width:1023px) and (max-aspect-ratio:1/1){
+  :root{
+    --s:clamp(0.82px, min(100vw / 900, 100vh / 1200), 1.25px);
+    --bx:56; --by:33; --bs:40;
+    --h1y:-10.25; --suby:137.4; --numy:15.6; --laby:60.7;
+    --lx:56; --ly:33; --logo:40; --wmfs:21; --wmsfs:9.6; --wmgap:12;
+    --hdh:73; --heroh:251; --stath:92;
+    --tx:66.7; --h1fs:56.3; --h1lh:62.3; --h1ls:-1.97;
+    --subfs:15.33; --sublh:21.3; --subls:-0.71; --ctay:203.4;
+    --btnw:174; --btnh:47.6; --btnpl:14.8; --btnpr:18; --btngap:9; --btnfs:17.1; --arw:17.6; --arh:14.8;
+    --numfs:27.4; --labfs:18; --labls:-0.51;
+    --s1x:64.5; --r1x:167.5; --s2x:193.8; --r2x:311; --s3x:341; --ruley:1.6; --ruleh:85;
+    --mrowfs:46; --msubfs:16;
+  }
+}
+@media (max-width:599px){
+  :root{
+    --s:min(100vw / 430, 100vh / 620, 1.02px);
+    --bx:26; --by:21; --bs:34;
+    --h1y:-7.1; --suby:108; --numy:13; --laby:50;
+    --lx:26; --ly:21; --logo:34; --wmfs:18.5; --wmsfs:8.6; --wmgap:10;
+    --hdh:60; --heroh:215; --stath:76;
+    --tx:28; --h1fs:39; --h1lh:43.2; --h1ls:-1.36;
+    --subfs:12.9; --sublh:18.5; --subls:-0.6; --ctay:165;
+    --btnw:185; --btnh:50; --btnpl:15.7; --btnpr:19.1; --btngap:9.6; --btnfs:17.5; --arw:18.6; --arh:15.6;
+    --numfs:23.5; --labfs:14.8; --labls:-0.42;
+    --s1x:27; --r1x:108; --s2x:128; --r2x:216; --s3x:236; --ruley:1; --ruleh:70;
+    --mrowfs:34; --msubfs:14.5;
+  }
+}
+
+/* ---------- base ---------- */
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%;margin:0;background:#000;overflow:hidden}
+body{color:var(--ink);font-family:'JB',ui-monospace,monospace;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:geometricPrecision}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+ul{list-style:none;margin:0;padding:0}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.svgdefs{position:absolute;width:0;height:0;overflow:hidden}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- stage + video ---------- */
+.screen{position:fixed;inset:0;overflow:hidden;background:#000}
+.bg,.bg2{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.bg{filter:url(#grade);background:radial-gradient(ellipse 60% 70% at 80% 28%,rgba(251,186,0,.13),rgba(251,186,0,.04) 45%,transparent 70%),radial-gradient(ellipse 45% 55% at 92% 8%,rgba(255,255,255,.07),transparent 70%)}
+.bg video,.bg2 video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.bg2{filter:url(#grade2);mix-blend-mode:plus-lighter;opacity:.35;
+  -webkit-mask-image:linear-gradient(180deg,transparent 21.5%,#000 100%);mask-image:linear-gradient(180deg,transparent 21.5%,#000 100%)}
+.scrim{position:absolute;inset:0;pointer-events:none;display:none}
+
+/* ---------- frame ---------- */
+.frame{position:absolute;inset:0;display:flex;flex-direction:column}
+header{position:relative;flex:none;height:calc(var(--hdh) * var(--s));z-index:10}
+.sp{min-height:0;flex-basis:0;flex-shrink:1}
+.sp-a{flex-grow:239}.sp-b{flex-grow:194}.sp-c{flex-grow:115}
+.hero{position:relative;flex:none;height:calc(var(--heroh) * var(--s))}
+.stats{position:relative;flex:none;height:calc(var(--stath) * var(--s))}
+
+/* ---------- logo ---------- */
+.logo{position:absolute;left:calc(var(--lx) * var(--s));top:calc(var(--ly) * var(--s));display:flex;align-items:center;gap:calc(var(--wmgap) * var(--s));transform-origin:left center}
+.logo svg{width:calc(var(--logo) * var(--s));height:calc(var(--logo) * var(--s));display:block;flex:none;overflow:visible}
+.wm{display:flex;flex-direction:column;line-height:1}
+.wm b{font-family:'SG';font-weight:700;font-size:calc(var(--wmfs) * var(--s));letter-spacing:.09em}
+.wm small{font-family:'JB';font-weight:400;font-size:calc(var(--wmsfs) * var(--s));letter-spacing:.04em;color:var(--lab);margin-top:calc(5 * var(--s))}
+
+/* ---------- desktop nav ---------- */
+nav.nav{position:absolute;left:calc(482 * var(--s));top:calc(32 * var(--s));height:calc(58 * var(--s))}
+nav.nav > ul{display:flex;height:100%;align-items:center}
+.ni{position:relative;height:100%;display:flex;align-items:center}
+.ni + .ni{margin-left:calc(40 * var(--s))}
+.ni:nth-child(2){margin-left:calc(53 * var(--s))}
+.ni:nth-child(4){margin-left:calc(37 * var(--s))}
+.ni > a{display:inline-flex;align-items:center;gap:calc(7 * var(--s));height:100%;font-family:'JB';font-weight:400;font-size:calc(19.9 * var(--s));color:#fff;white-space:nowrap;transition:color .25s}
+.ni > a svg{width:calc(11.6 * var(--s));height:calc(7.2 * var(--s));margin-top:calc(-2.6 * var(--s));transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.dd{position:absolute;top:100%;left:calc(-20 * var(--s));min-width:calc(300 * var(--s));padding:calc(10 * var(--s)) 0;background:#000;
+  border:1px solid rgba(255,255,255,.12);border-top:calc(2 * var(--s)) solid var(--acc);
+  opacity:0;visibility:hidden;transform:translateY(calc(6 * var(--s)));transition:opacity .22s,transform .3s cubic-bezier(.22,1,.36,1),visibility 0s .3s}
+.dd a{display:block;padding:calc(9 * var(--s)) calc(20 * var(--s));font-family:'JB';font-size:calc(15.5 * var(--s));letter-spacing:-.02em;color:var(--sub);white-space:nowrap;transition:color .2s}
+.ni:hover .dd,.ni:focus-within .dd{opacity:1;visibility:visible;transform:none;transition:opacity .22s,transform .3s cubic-bezier(.22,1,.36,1)}
+.ni:hover > a svg,.ni:focus-within > a svg{transform:rotate(180deg)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:space-between;gap:calc(var(--btngap) * var(--s));
+  min-width:calc(var(--btnw) * var(--s));height:calc(var(--btnh) * var(--s));
+  padding:0 calc(var(--btnpr) * var(--s)) 0 calc(var(--btnpl) * var(--s));
+  background:var(--acc);color:var(--on-acc);border:0;border-radius:0;cursor:pointer;transition:background-color .25s}
+.btn span{font-family:'SG';font-weight:480;font-size:calc(var(--btnfs) * var(--s));letter-spacing:calc(-0.62 * var(--s));line-height:1;white-space:nowrap;transform:translateY(calc(1.5 * var(--s)))}
+.btn svg{width:calc(var(--arw) * var(--s));height:calc(var(--arh) * var(--s));flex:none;display:block;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.btn-top{position:absolute;left:calc(1232 * var(--s));top:calc(30 * var(--s))}
+
+/* ---------- burger ---------- */
+.burger{display:none;position:absolute;right:calc(var(--bx) * var(--s));top:calc(var(--by) * var(--s));
+  width:calc(var(--bs) * var(--s));height:calc(var(--bs) * var(--s));padding:0;margin:0;background:none;border:0;cursor:pointer}
+.burger i{position:absolute;left:20%;top:50%;width:60%;height:max(2px, calc(2 * var(--s)));margin-top:calc(-1 * var(--s));background:#fff;transform-origin:center;
+  transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .2s,width .42s cubic-bezier(.22,1,.36,1)}
+.burger i:nth-child(1){transform:translateY(calc(var(--bs) * -0.18 * var(--s)))}
+.burger i:nth-child(3){width:28.2%;transform:translateY(calc(var(--bs) * 0.18 * var(--s)))}
+.nav-open .burger i:nth-child(1){transform:rotate(45deg)}
+.nav-open .burger i:nth-child(2){opacity:0}
+.nav-open .burger i:nth-child(3){width:60%;transform:rotate(-45deg)}
+
+/* ---------- hero ---------- */
+.hero h1{position:absolute;left:calc(var(--tx) * var(--s));top:calc(var(--h1y) * var(--s));margin:0;
+  font-family:'SG';font-weight:700;font-size:calc(var(--h1fs) * var(--s));line-height:calc(var(--h1lh) * var(--s));letter-spacing:calc(var(--h1ls) * var(--s));color:#fff;white-space:nowrap}
+.ln{display:block}
+.ln > span{display:inline-block}
+.sub{position:absolute;left:calc(var(--tx) * var(--s));top:calc(var(--suby) * var(--s));margin:0;
+  font-family:'JB';font-weight:400;font-size:calc(var(--subfs) * var(--s));line-height:calc(var(--sublh) * var(--s));letter-spacing:calc(var(--subls) * var(--s));color:var(--sub);white-space:nowrap}
+.btn-cta{position:absolute;left:calc(var(--tx) * var(--s));top:calc(var(--ctay) * var(--s))}
+
+/* ---------- stats ---------- */
+.stat{position:absolute;top:0}
+.stat.s1{left:calc(var(--s1x) * var(--s))}
+.stat.s2{left:calc(var(--s2x) * var(--s))}
+.stat.s3{left:calc(var(--s3x) * var(--s))}
+.num{position:absolute;left:0;top:calc(var(--numy) * var(--s));font-family:'JB';font-weight:480;font-size:calc(var(--numfs) * var(--s));line-height:1;color:#fff;white-space:nowrap}
+.lab{position:absolute;left:0;top:calc(var(--laby) * var(--s));font-family:'SG';font-weight:400;font-size:calc(var(--labfs) * var(--s));line-height:1;letter-spacing:calc(var(--labls) * var(--s));color:var(--lab);white-space:nowrap}
+.rule{position:absolute;top:calc(var(--ruley) * var(--s));height:calc(var(--ruleh) * var(--s));width:calc(1.5 * var(--s));transform-origin:center;
+  background:linear-gradient(180deg,rgba(255,255,255,.085),rgba(255,255,255,.21) 50%,rgba(255,255,255,.085))}
+.r1{left:calc(var(--r1x) * var(--s))}
+.r2{left:calc(var(--r2x) * var(--s))}
+
+/* ---------- legal (desktop) ---------- */
+.legal{position:absolute;right:calc(60 * var(--s));bottom:calc(30 * var(--s));display:flex;gap:calc(22 * var(--s));
+  font-family:'JB';font-size:calc(12.5 * var(--s));letter-spacing:.02em;color:var(--lab);z-index:3}
+.legal a{transition:color .2s}
+
+/* ---------- mobile menu ---------- */
+.menu{display:none;position:absolute;inset:0;z-index:5;background:#000;opacity:0;visibility:hidden;
+  transition:opacity .35s cubic-bezier(.22,1,.36,1),visibility 0s .35s}
+.nav-open .menu{opacity:1;visibility:visible;transition:opacity .35s cubic-bezier(.22,1,.36,1)}
+.menu-tex{position:absolute;inset:0;opacity:.4;pointer-events:none;filter:url(#grade2);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,transparent 34%,#000 100%);mask-image:linear-gradient(180deg,transparent 0%,transparent 34%,#000 100%)}
+.menu-tex video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% top;display:block}
+.menu-in{position:relative;height:100%;display:flex;flex-direction:column;
+  padding:calc((var(--by) + var(--bs) + 26) * var(--s)) calc(var(--bx) * var(--s)) calc(26 * var(--s) + env(safe-area-inset-bottom))}
+.menu-rule{position:absolute;left:calc(var(--bx) * var(--s));right:calc(var(--bx) * var(--s));top:calc((var(--by) + var(--bs) + 12) * var(--s));
+  height:calc(2 * var(--s));background:var(--acc);transform:scaleX(0);transform-origin:left center;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.nav-open .menu-rule{transform:scaleX(1);transition-delay:.04s}
+.menu-eye{margin:calc(14 * var(--s)) 0 calc(8 * var(--s));font-family:'JB';font-size:calc(11.5 * var(--s));letter-spacing:.22em;text-transform:uppercase;color:var(--lab)}
+.mlist{flex:none}
+.mlist > li,.menu-eye,.mfoot{opacity:0;transform:translateY(calc(14 * var(--s)));transition:opacity .45s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.nav-open .menu-eye{opacity:1;transform:none;transition-delay:.04s}
+.nav-open .mlist > li{opacity:1;transform:none}
+.nav-open .mlist > li:nth-child(1){transition-delay:.08s}
+.nav-open .mlist > li:nth-child(2){transition-delay:.14s}
+.nav-open .mlist > li:nth-child(3){transition-delay:.20s}
+.nav-open .mlist > li:nth-child(4){transition-delay:.26s}
+.nav-open .mfoot{opacity:1;transform:none;transition-delay:.32s}
+.mrow{display:flex;width:100%;align-items:center;justify-content:space-between;padding:calc(13 * var(--s)) 0;
+  border:0;border-bottom:1px solid rgba(255,255,255,.12);background:none;cursor:pointer;text-align:left;
+  font-family:'SG';font-weight:700;font-size:calc(var(--mrowfs) * var(--s));line-height:1.05;letter-spacing:-.035em;color:#fff;transition:color .2s}
+.pm{position:relative;flex:none;width:calc(16 * var(--s));height:calc(16 * var(--s));margin-right:calc(4 * var(--s))}
+.pm::before,.pm::after{content:"";position:absolute;left:0;top:50%;width:100%;height:max(2px, calc(2 * var(--s)));margin-top:calc(-1 * var(--s));background:currentColor;transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.pm::after{transform:rotate(90deg)}
+.acc.open > .mrow{color:var(--acc)}
+.acc.open .pm::after{transform:rotate(0deg)}
+.msub{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.22,1,.36,1)}
+.msub > div{overflow:hidden;min-height:0}
+.acc.open .msub{grid-template-rows:1fr}
+.msub ul{padding:calc(10 * var(--s)) 0 calc(14 * var(--s));border-bottom:1px solid rgba(255,255,255,.12)}
+.msub a{display:block;padding:calc(7 * var(--s)) 0;font-family:'JB';font-size:calc(var(--msubfs) * var(--s));letter-spacing:-.02em;color:var(--sub);transition:color .2s}
+.mfoot{margin-top:auto;padding-top:calc(22 * var(--s))}
+.btn-menu{width:100%}
+.mnote{margin:calc(14 * var(--s)) 0 0;font-family:'JB';font-size:calc(12 * var(--s));letter-spacing:.04em;color:var(--lab)}
+.mlegal{margin:calc(10 * var(--s)) 0 0;display:flex;gap:calc(18 * var(--s));font-family:'JB';font-size:calc(12 * var(--s));color:var(--lab)}
+.mlegal a{text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.25)}
+
+/* ---------- hover (pointer devices only) ---------- */
+@media (hover:hover){
+  .ni > a:hover{color:var(--acc)}
+  .dd a:hover{color:var(--acc)}
+  .btn:hover{background:var(--acc-d)}
+  .btn:hover svg{transform:translateX(calc(3 * var(--s)))}
+  .legal a:hover{color:#fff}
+  .mrow:hover{color:var(--acc)}
+  .msub a:hover{color:var(--acc)}
+  .mlegal a:hover{color:#fff}
+}
+
+/* ---------- ≤1023: burger + overlay ---------- */
+@media (max-width:1023px){
+  nav.nav,.btn-top,.legal{display:none}
+  .burger{display:block}
+  .menu{display:block}
+}
+
+/* ---------- tablet portrait video ---------- */
+@media (max-width:1023px) and (max-aspect-ratio:1/1){
+  .bg2{display:none}
+  .bg video{object-position:right top;transform:scale(1.18);transform-origin:right top}
+  .bg{-webkit-mask-image:linear-gradient(180deg,#000 0 40%,transparent 64%);mask-image:linear-gradient(180deg,#000 0 40%,transparent 64%)}
+  .scrim{display:block;background:linear-gradient(100deg,#000 26%,rgba(0,0,0,.74) 50%,rgba(0,0,0,.18) 76%,transparent 92%)}
+}
+
+/* ---------- phone video ---------- */
+@media (max-width:599px){
+  .bg{-webkit-mask-image:none;mask-image:none}
+  .bg video{transform:none;object-position:78% top}
+  .bg2{display:block;-webkit-mask-image:linear-gradient(180deg,transparent 10%,#000 60%);mask-image:linear-gradient(180deg,transparent 10%,#000 60%)}
+  .bg2 video{object-position:78% top}
+  .scrim{display:block;background:linear-gradient(180deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.50) 24%,rgba(0,0,0,.86) 42%,#000 66%)}
+}
+
+/* ---------- entrance: initial state (armed before paint) ---------- */
+html.intro .logo,html.intro .ni,html.intro .burger,html.intro .sub,html.intro .num,html.intro .lab,html.intro .legal{opacity:0}
+html.intro .logo{transform:scale(.9)}
+html.intro .ni{transform:translateY(calc(7 * var(--s)))}
+html.intro .sub{transform:translateY(calc(14 * var(--s)))}
+html.intro .num{transform:translateY(calc(12 * var(--s)))}
+html.intro .lab{transform:translateY(calc(10 * var(--s)))}
+html.intro .rule{transform:scaleY(0)}
+html.intro .btn-top,html.intro .btn-cta{clip-path:inset(0 100% 0 0)}
+html.intro h1 .ln{overflow:hidden;padding-bottom:calc(6 * var(--s));margin-bottom:calc(-6 * var(--s))}
+html.intro h1 .ln > span{transform:translateY(120%)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none !important}
+}
+</style>
+<script>
+(function(){var d=document.documentElement;
+  if(!('animate' in d)||(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches))return;
+  d.classList.add('intro');})();
+</script>
+</head>
+<body>
+
+<svg class="svgdefs" aria-hidden="true" focusable="false">
+  <filter id="grade" color-interpolation-filters="sRGB">
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.0018 0.0105 0.0154 0.0228 0.0307 0.0404 0.0485 0.0585 0.0719 0.0923 0.1205 0.1466 0.1657 0.1866 0.2197 0.2405 0.2485 0.2921 0.3362 0.3465 0.3472 0.3781 0.3781 0.4078 0.4199 0.4391 0.4604 0.4763 0.4798 0.5197 0.5473 0.5720 0.5995 0.6048 0.6232 0.6322 0.6483 0.6734 0.7201 0.7201 0.7410 0.7707 0.7707 0.7790 0.8084 0.8084 0.8390 0.8595 0.8707 0.8870 0.8993 0.9085 0.9132 0.9132 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9162 0.9238 0.9300"/>
+      <feFuncG type="table" tableValues="0.0023 0.0106 0.0159 0.0250 0.0333 0.0445 0.0535 0.0620 0.0707 0.0827 0.0936 0.1063 0.1214 0.1402 0.1678 0.1727 0.2029 0.2176 0.2461 0.2757 0.2814 0.3050 0.3415 0.3692 0.3826 0.3884 0.4617 0.4617 0.4617 0.4643 0.4643 0.4808 0.5706 0.6005 0.6005 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6390 0.6524 0.6664 0.6805 0.6945 0.7086 0.7227 0.7367 0.7508 0.7648 0.7789 0.7929 0.8070 0.8211 0.8351 0.8492 0.8632 0.8773 0.8913 0.9054 0.9195 0.9300"/>
+      <feFuncB type="table" tableValues="0.0021 0.0110 0.0187 0.0311 0.0377 0.0466 0.0584 0.0706 0.0791 0.0924 0.1039 0.1145 0.1316 0.1464 0.1614 0.1719 0.1887 0.2014 0.2247 0.2458 0.2954 0.2954 0.3089 0.3938 0.3938 0.3988 0.3988 0.4581 0.4581 0.4762 0.4762 0.4763 0.5374 0.5560 0.5813 0.5813 0.5813 0.5813 0.5835 0.5969 0.6104 0.6238 0.6373 0.6507 0.6642 0.6777 0.6911 0.7046 0.7181 0.7315 0.7449 0.7584 0.7719 0.7853 0.7988 0.8123 0.8257 0.8391 0.8526 0.8661 0.8795 0.8930 0.9065 0.9199 0.9300"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="grade2" color-interpolation-filters="sRGB">
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.0016 0.0092 0.0136 0.0201 0.0270 0.0356 0.0427 0.0515 0.0633 0.0812 0.1060 0.1290 0.1458 0.1642 0.1933 0.2116 0.2187 0.2570 0.2959 0.3049 0.3055 0.3327 0.3327 0.3589 0.3695 0.3864 0.4052 0.4191 0.4222 0.4573 0.4816 0.5034 0.5276 0.5322 0.5484 0.5563 0.5705 0.5926 0.6337 0.6337 0.6521 0.6782 0.6782 0.6855 0.7114 0.7114 0.7383 0.7564 0.7662 0.7806 0.7914 0.7995 0.8036 0.8036 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8063 0.8129 0.8184"/>
+      <feFuncG type="table" tableValues="0.0015 0.0069 0.0103 0.0163 0.0216 0.0289 0.0348 0.0403 0.0460 0.0538 0.0608 0.0691 0.0789 0.0911 0.1091 0.1123 0.1319 0.1414 0.1600 0.1792 0.1829 0.1983 0.2220 0.2400 0.2487 0.2525 0.3001 0.3001 0.3001 0.3018 0.3018 0.3125 0.3709 0.3903 0.3903 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4153 0.4241 0.4332 0.4423 0.4514 0.4606 0.4698 0.4789 0.4880 0.4971 0.5063 0.5154 0.5246 0.5337 0.5428 0.5520 0.5611 0.5702 0.5793 0.5885 0.5977 0.6045"/>
+      <feFuncB type="table" tableValues="0.0013 0.0066 0.0112 0.0187 0.0226 0.0280 0.0350 0.0424 0.0475 0.0554 0.0623 0.0687 0.0790 0.0878 0.0968 0.1031 0.1132 0.1208 0.1348 0.1475 0.1772 0.1772 0.1853 0.2363 0.2363 0.2393 0.2393 0.2749 0.2749 0.2857 0.2857 0.2858 0.3224 0.3336 0.3488 0.3488 0.3488 0.3488 0.3501 0.3581 0.3662 0.3743 0.3824 0.3904 0.3985 0.4066 0.4147 0.4228 0.4309 0.4389 0.4469 0.4550 0.4631 0.4712 0.4793 0.4874 0.4954 0.5035 0.5116 0.5197 0.5277 0.5358 0.5439 0.5519 0.5580"/>
+    </feComponentTransfer>
+  </filter>
+  <symbol id="arrow" viewBox="0 0 21.5 18"><path d="M0 9H20.1M12.1 1L20.1 9L12.1 17" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="chev" viewBox="0 0 11 6.5"><path d="M1 1L5.5 5L10 1" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+</svg>
+
+<div class="screen">
+  <div class="bg" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
+  <div class="bg2" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
+  <div class="scrim" aria-hidden="true"></div>
+
+  <div class="frame">
+    <header>
+      <a class="logo" href="index.html" aria-label="Horn Elektrische Anlagen – Startseite">
+        <svg viewBox="0 0 46 46" aria-hidden="true">
+          <path d="M3.5 13.5L10 6.5H36L42.5 13.5V42.5H3.5Z" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="miter"/>
+          <path d="M30 11V33M24.5 27.5L30 33.5L35.5 27.5" fill="none" style="stroke:var(--acc)" stroke-width="3" stroke-linecap="butt"/>
+          <path d="M8.5 36.5H11M13.5 36.5H16M18.5 36.5H21M36 36.5H38.5" fill="none" style="stroke:var(--acc)" stroke-width="2.4" stroke-linecap="butt"/>
+        </svg>
+        <span class="wm"><b>HORN</b><small>Elektrische Anlagen</small></span>
+      </a>
+
+      <nav class="nav" aria-label="Hauptnavigation">
+        <ul>
+          <li class="ni"><a href="index.html" aria-current="page">Start</a></li>
+          <li class="ni">
+            <a href="leistungen.html" aria-haspopup="true">Leistungen<svg aria-hidden="true"><use href="#chev"/></svg></a>
+            <ul class="dd">
+              <li><a href="leistungen.html#knx">KNX-Gebäudesteuerung</a></li>
+              <li><a href="leistungen.html#datentechnik">Daten- &amp; Glasfasertechnik</a></li>
+              <li><a href="leistungen.html#pruefung">Anlagen- &amp; Geräteprüfung</a></li>
+              <li><a href="leistungen.html#notbeleuchtung">Notbeleuchtung</a></li>
+              <li><a href="leistungen.html#schaltanlagenbau">Schaltanlagenbau</a></li>
+              <li><a href="leistungen.html#sicherheit">Sicherheit &amp; Zutritt</a></li>
+            </ul>
+          </li>
+          <li class="ni">
+            <a href="ueber-uns.html" aria-haspopup="true">Unternehmen<svg aria-hidden="true"><use href="#chev"/></svg></a>
+            <ul class="dd">
+              <li><a href="ueber-uns.html">Über uns</a></li>
+              <li><a href="ausbildung.html">Ausbildung</a></li>
+              <li><a href="beratung.html">Beratung</a></li>
+              <li><a href="planung.html">Planung</a></li>
+              <li><a href="herstellung.html">Herstellung</a></li>
+              <li><a href="wartung.html">Wartung</a></li>
+            </ul>
+          </li>
+          <li class="ni"><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><i></i><i></i><i></i></button>
+
+      <a class="btn btn-top" href="tel:+49407006101" aria-label="Anrufen: 040 700 61 01">
+        <span>040 700 61 01</span><svg aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </header>
+
+    <div class="sp sp-a"></div>
+
+    <section class="hero" aria-labelledby="h1">
+      <h1 id="h1">
+        <span class="ln"><span>Elektrotechnik, die</span></span>
+        <span class="ln"><span>einfach funktioniert</span></span>
+      </h1>
+      <p class="sub">Beratung, Planung, Installation, Wartung.<br>Ihr Meisterbetrieb in Neu Wulmstorf.</p>
+      <a class="btn btn-cta" href="kontakt.html#anfrage">
+        <span>Projekt anfragen</span><svg aria-hidden="true"><use href="#arrow"/></svg>
+      </a>
+    </section>
+
+    <div class="sp sp-b"></div>
+
+    <section class="stats" aria-label="Kennzahlen">
+      <div class="stat s1"><div class="num">1993</div><div class="lab">Gegründet</div></div>
+      <span class="rule r1" aria-hidden="true"></span>
+      <div class="stat s2"><div class="num">11</div><div class="lab">Leistungen</div></div>
+      <span class="rule r2" aria-hidden="true"></span>
+      <div class="stat s3"><div class="num">7+2</div><div class="lab">Mitarbeiter + Azubis</div></div>
+    </section>
+
+    <div class="sp sp-c"></div>
+  </div>
+
+  <p class="legal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
+
+  <div id="menu" class="menu" aria-hidden="true" inert>
+    <div class="menu-tex" aria-hidden="true"><video autoplay muted loop playsinline preload="auto" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260809_132544_b6ef0174-ed95-45ad-9a2f-ccb8acfbdce8.mp4"></video></div>
+    <div class="menu-in">
+      <span class="menu-rule" aria-hidden="true"></span>
+      <p class="menu-eye">Menü</p>
+      <ul class="mlist">
+        <li><a class="mrow" href="index.html" aria-current="page">Start</a></li>
+        <li class="acc">
+          <button class="mrow" type="button" aria-expanded="false" aria-controls="m-leist">Leistungen<i class="pm" aria-hidden="true"></i></button>
+          <div class="msub" id="m-leist"><div><ul>
+            <li><a href="leistungen.html#knx">KNX-Gebäudesteuerung</a></li>
+            <li><a href="leistungen.html#datentechnik">Daten- &amp; Glasfasertechnik</a></li>
+            <li><a href="leistungen.html#pruefung">Anlagen- &amp; Geräteprüfung</a></li>
+            <li><a href="leistungen.html#notbeleuchtung">Notbeleuchtung</a></li>
+            <li><a href="leistungen.html#schaltanlagenbau">Schaltanlagenbau</a></li>
+            <li><a href="leistungen.html#sicherheit">Sicherheit &amp; Zutritt</a></li>
+          </ul></div></div>
+        </li>
+        <li class="acc">
+          <button class="mrow" type="button" aria-expanded="false" aria-controls="m-unt">Unternehmen<i class="pm" aria-hidden="true"></i></button>
+          <div class="msub" id="m-unt"><div><ul>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+              <li><a href="ausbildung.html">Ausbildung</a></li>
+            <li><a href="beratung.html">Beratung</a></li>
+            <li><a href="planung.html">Planung</a></li>
+            <li><a href="herstellung.html">Herstellung</a></li>
+            <li><a href="wartung.html">Wartung</a></li>
+          </ul></div></div>
+        </li>
+        <li><a class="mrow" href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <div class="mfoot">
+        <a class="btn btn-menu" href="tel:+49407006101"><span>Jetzt anrufen</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
+        <p class="mnote">Seit 1993 &nbsp;/&nbsp; Neu Wulmstorf</p>
+        <p class="mlegal"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var doc=document.documentElement, body=document.body;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- video: keep the three plates in sync ---------- */
+  var vids=[].slice.call(document.querySelectorAll('video'));
+  if(reduce){
+    vids.forEach(function(v){v.removeAttribute('autoplay');v.pause();});
+  }else{
+    var master=vids[0];
+    vids.forEach(function(v){v.muted=true;var p=v.play();if(p&&p.catch)p.catch(function(){});});
+    master.addEventListener('timeupdate',function(){
+      for(var i=1;i<vids.length;i++){
+        if(Math.abs(vids[i].currentTime-master.currentTime)>0.12){vids[i].currentTime=master.currentTime;}
+      }
+    });
+  }
+
+  /* ---------- mobile menu ---------- */
+  var burger=document.querySelector('.burger'), menu=document.getElementById('menu');
+  var accs=[].slice.call(menu.querySelectorAll('.acc'));
+  function setAcc(acc,open){acc.classList.toggle('open',open);acc.querySelector('button').setAttribute('aria-expanded',open?'true':'false');}
+  function setMenu(open){
+    body.classList.toggle('nav-open',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Menü schließen':'Menü öffnen');
+    menu.setAttribute('aria-hidden',open?'false':'true');
+    if(open){menu.removeAttribute('inert');}else{menu.setAttribute('inert','');accs.forEach(function(a){setAcc(a,false);});}
+  }
+  burger.addEventListener('click',function(){setMenu(!body.classList.contains('nav-open'));});
+  accs.forEach(function(acc){
+    acc.querySelector('button').addEventListener('click',function(){
+      var willOpen=!acc.classList.contains('open');
+      accs.forEach(function(a){setAcc(a,false);});
+      setAcc(acc,willOpen);
+    });
+  });
+  menu.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&body.classList.contains('nav-open')){setMenu(false);burger.focus();}
+  });
+  var desk=matchMedia('(min-width:1024px)');
+  var onDesk=function(){if(desk.matches)setMenu(false);};
+  desk.addEventListener?desk.addEventListener('change',onDesk):desk.addListener(onDesk);
+
+  /* ---------- one-shot entrance ---------- */
+  if(!doc.classList.contains('intro'))return;
+  var started=false, done=false, anims=[];
+  function finish(){
+    if(done)return; done=true;
+    doc.classList.remove('intro');
+    anims.forEach(function(a){a.cancel();});
+    anims=[];
+  }
+  setTimeout(finish,4000);
+
+  function start(){
+    if(started||done)return; started=true;
+    var probe=document.createElement('div');
+    probe.style.cssText='position:absolute;visibility:hidden;pointer-events:none;height:0;width:calc(100 * var(--s))';
+    body.appendChild(probe);
+    var S=probe.getBoundingClientRect().width/100||1;
+    probe.remove();
+
+    var k=matchMedia('(max-width:599px)').matches?0.86:1;
+    var EXPO='cubic-bezier(.16,1,.3,1)', QUINT='cubic-bezier(.22,1,.36,1)', QUART='cubic-bezier(.25,1,.5,1)', TYPE='cubic-bezier(.22,.85,.24,1)';
+    function q(sel){return [].slice.call(document.querySelectorAll(sel));}
+    function run(els,frames,t,dur,ease,stagger){
+      var i=0;
+      els.forEach(function(el){
+        if(!el.getClientRects().length)return;
+        anims.push(el.animate(frames,{delay:(t+i*(stagger||0))*1000*k,duration:dur*1000*k,easing:ease,fill:'both'}));
+        i++;
+      });
+    }
+    function rise(px){return [{opacity:0,transform:'translateY('+(px*S)+'px)'},{opacity:1,transform:'translateY(0px)'}];}
+    var wipe=[{clipPath:'inset(0 100% 0 0)'},{clipPath:'inset(0 0% 0 0)'}];
+
+    run(q('.logo'),[{opacity:0,transform:'scale(.9)'},{opacity:1,transform:'scale(1)'}],0,.70,EXPO);
+    run(q('.nav .ni'),rise(7),.12,.62,QUINT,.055);
+    run(q('.burger'),[{opacity:0},{opacity:1}],.18,.55,QUART);
+    run(q('.btn-top'),wipe,.28,.66,EXPO);
+    run(q('h1 .ln > span'),[{transform:'translateY(120%)'},{transform:'translateY(0%)'}],.34,.98,TYPE,.09);
+    run(q('.sub'),rise(14),.74,.72,QUINT);
+    run(q('.btn-cta'),wipe,.90,.70,EXPO);
+    run(q('.rule'),[{transform:'scaleY(0)'},{transform:'scaleY(1)'}],.98,.60,QUART,.07);
+    run(q('.num'),rise(12),1.04,.66,QUINT,.085);
+    run(q('.lab'),rise(10),1.10,.62,QUINT,.085);
+    run(q('.legal'),[{opacity:0},{opacity:1}],1.16,.62,QUINT);
+
+    if(!anims.length){finish();return;}
+    Promise.all(anims.map(function(a){return a.finished;})).then(finish,finish);
+  }
+
+  var armed=false;
+  function arm(){
+    if(armed)return; armed=true;
+    requestAnimationFrame(start);
+    setTimeout(start,1200);
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(arm,arm);}else{arm();}
+  setTimeout(arm,1000);
+})();
+</script>
+</body>
+</html>
