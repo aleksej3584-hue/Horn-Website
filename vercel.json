@@ -1,18 +1,56 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "",
-  "outputDirectory": ".",
   "redirects": [
-    { "source": "/beratung/", "destination": "/beratung.html", "permanent": true },
-    { "source": "/planung/", "destination": "/planung.html", "permanent": true },
-    { "source": "/herstellung/", "destination": "/herstellung.html", "permanent": true },
-    { "source": "/wartung/", "destination": "/wartung.html", "permanent": true },
-    { "source": "/wir-ueber-uns/", "destination": "/ueber-uns.html", "permanent": true },
-    { "source": "/kontakt/", "destination": "/kontakt.html", "permanent": true },
-    { "source": "/impressum/", "destination": "/impressum.html", "permanent": true },
-    { "source": "/datenschutz/", "destination": "/datenschutz.html", "permanent": true }
+    {
+      "source": "/beratung/",
+      "destination": "/beratung.html",
+      "permanent": true
+    },
+    {
+      "source": "/planung/",
+      "destination": "/planung.html",
+      "permanent": true
+    },
+    {
+      "source": "/herstellung/",
+      "destination": "/herstellung.html",
+      "permanent": true
+    },
+    {
+      "source": "/wartung/",
+      "destination": "/wartung.html",
+      "permanent": true
+    },
+    {
+      "source": "/wir-ueber-uns/",
+      "destination": "/ueber-uns.html",
+      "permanent": true
+    },
+    {
+      "source": "/kontakt/",
+      "destination": "/kontakt.html",
+      "permanent": true
+    },
+    {
+      "source": "/impressum/",
+      "destination": "/impressum.html",
+      "permanent": true
+    },
+    {
+      "source": "/datenschutz/",
+      "destination": "/datenschutz.html",
+      "permanent": true
+    }
   ],
   "headers": [
-    { "source": "/assets/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] }
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
   ]
 }
