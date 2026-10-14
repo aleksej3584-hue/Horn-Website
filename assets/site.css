@@ -390,3 +390,7 @@ html.intro .stage-main > *,html.intro .stage-facts{opacity:0;transform:translate
 .seal-foot{width:68px;height:68px;margin-top:22px}
 .fact-seal{justify-content:center}
 @media (max-width:599px){.stage-facts .fact-seal{display:none}}
+.seal-img{width:auto;object-fit:contain}
+.seal.seal-img{height:84px}
+.seal-lg.seal-img{height:120px}
+.seal-foot.seal-img{height:84px}

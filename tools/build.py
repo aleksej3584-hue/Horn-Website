@@ -307,7 +307,14 @@ ICONS = {
 }
 
 
+SEAL_FILES = ['assets/dekra-iso9001.svg', 'assets/dekra-iso9001.png', 'assets/dekra-iso9001.webp', 'assets/dekra-iso9001.jpg']
+
+
 def seal(cls='seal'):
+    # Offizielles DEKRA-Siegel, sobald die Datei in assets/ liegt; sonst neutrales Siegel.
+    for rel in SEAL_FILES:
+        if os.path.exists(os.path.join(ROOT, rel)):
+            return f'<img class="{cls} seal-img" src="{rel}" alt="DEKRA-Siegel: Qualitätsmanagement ISO 9001 zertifiziert" loading="lazy">'
     return f'<svg class="{cls}" role="img" aria-label="Zertifiziert nach ISO 9001"><use href="#seal"/></svg>'
 
 
