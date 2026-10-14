@@ -40,7 +40,7 @@ SERVICES_NAV = [
 ]
 COMPANY_NAV = [
     ('ueber-uns.html', 'Über uns'),
-    ('ausbildung.html', 'Ausbildung & Jobs'),
+    ('ausbildung.html', 'Ausbildung'),
     ('beratung.html', 'Beratung'),
     ('planung.html', 'Planung'),
     ('herstellung.html', 'Herstellung'),
@@ -436,9 +436,6 @@ def home():
       <h2>Meisterbetrieb seit 1993, zertifiziert nach ISO 9001.</h2>
       <p>Thomas Horn hat den Betrieb 1993 gegründet. Heute arbeiten bei uns sieben Mitarbeiter und zwei Auszubildende, mit moderner Ausstattung, eigener Werkstatt und einem Qualitätsmanagement nach ISO 9001.</p>
 ''' + more('ueber-uns.html', 'Mehr über uns')),
-        block('Karriere', '''      <h2>Wir suchen Gesellen und Azubis.</h2>
-      <p>Elektroniker für Energie- und Gebäudetechnik (m/w/d): als Geselle oder in der Ausbildung mit Beginn im August.</p>
-''' + more('ausbildung.html#stellen', 'Offene Stellen ansehen')),
         cta_band(),
     ])
     return page('index.html', 'Horn Elektrische Anlagen – Elektrotechnik in Neu Wulmstorf seit 1993',
@@ -566,40 +563,24 @@ def ueber_uns():
                 body)
 
 
-# ---------------------------------------------------------------- Ausbildung & Jobs
+# ---------------------------------------------------------------- Ausbildung
 def ausbildung():
-    job_azubi = f'mailto:{MAIL}?subject=Bewerbung%20Ausbildung'
-    job_geselle = f'mailto:{MAIL}?subject=Bewerbung%20Geselle'
     body = '\n'.join([
-        hero('Unternehmen &nbsp;·&nbsp; Ausbildung &amp; Jobs',
-             'Ausbildung und Jobs bei Horn.',
-             'Wir bilden aus zum Elektroniker für Energie- und Gebäudetechnik und suchen Gesellen zur Verstärkung unseres Teams.',
-             f'''
-    <div class="actions">
-      <a class="btn" href="#stellen"><span>Offene Stellen</span>{ARROW}</a>
-      <a class="btn btn-ghost" href="{PHONE_TEL}"><span>{PHONE_BTN}</span>{ARROW}</a>
-    </div>'''),
-        block('Offene Stellen', f'''      <h2>Wir suchen Verstärkung.</h2>
-      <h3>Elektroniker für Energie- und Gebäudetechnik (m/w/d) als Geselle</h3>
-      <p>Sie haben Ihre Ausbildung abgeschlossen und möchten in einem eingespielten Team arbeiten, mit modernen Fahrzeugen, guter Ausstattung und abwechslungsreichen Aufträgen.</p>
-{more(job_geselle, 'Als Geselle bewerben')}
-      <h3>Auszubildende (m/w/d), Ausbildungsbeginn im August</h3>
-      <p>Sie haben Spaß an Technik und arbeiten gern mit den Händen. Wir bilden Sie zum Elektroniker für Energie- und Gebäudetechnik aus.</p>
-{more(job_azubi, 'Für die Ausbildung bewerben')}''', 'stellen'),
+        hero('Unternehmen &nbsp;·&nbsp; Ausbildung',
+             'Ausbildung im Elektrohandwerk bei Horn.',
+             'Wir bilden aus zum Elektroniker für Energie- und Gebäudetechnik. Zurzeit lernen zwei Auszubildende in unserem Team.'),
         block('Ausbildung', '''      <h2>Elektroniker für Energie- und Gebäudetechnik.</h2>
-      <p>Ausbildungsbeginn ist im August, die Ausbildung dauert 3,5 Jahre. Zurzeit lernen zwei Auszubildende in unserem Team.</p>
+      <p>Ausbildungsbeginn ist im August, die Ausbildung dauert 3,5 Jahre.</p>
 ''' + ticks([
             'Ein Team aus sieben Fachleuten, vom Gesellen bis zum Meister',
             'Moderne Werkzeuge, Fahrzeuge und Arbeitsbühnen',
             'Eigene Werkstatt für Verteilungsbau und SPS-Technik im Vorführraum',
             'Abwechslung von der Elektroinstallation über KNX bis zur Datentechnik',
         ])),
-        block('Bewerbung', f'''      <h2>So bewerben Sie sich.</h2>
-      <p>Schicken Sie uns Anschreiben, Lebenslauf und Ihre letzten Zeugnisse per E-Mail an <a href="mailto:{MAIL}?subject=Bewerbung">{MAIL}</a>. Fragen beantworten wir gern auch telefonisch unter {PHONE}.</p>'''),
-        cta_band('Fragen zur Ausbildung oder zu offenen Stellen?', 'Karriere'),
+        cta_band(),
     ])
-    return page('ausbildung.html', 'Ausbildung & Jobs – Horn Elektrische Anlagen, Neu Wulmstorf',
-                'Ausbildung zum Elektroniker für Energie- und Gebäudetechnik (Beginn August) und Stellen für Gesellen bei Horn Elektrische Anlagen in Neu Wulmstorf.',
+    return page('ausbildung.html', 'Ausbildung – Horn Elektrische Anlagen, Neu Wulmstorf',
+                'Ausbildung zum Elektroniker für Energie- und Gebäudetechnik bei Horn Elektrische Anlagen in Neu Wulmstorf.',
                 body)
 
 
