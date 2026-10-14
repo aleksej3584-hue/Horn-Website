@@ -38,7 +38,6 @@ Auf den Seiten gelb markiert:
 
 Außerdem:
 
-- **Texte als Entwurf neu geschrieben** (gab es auf der alten Seite nicht): Sprechanlagen, Sicherheitstechnik, Zutrittskontrollen, Schließanlagen, dazu die Seite Ausbildung. Bitte vom Kunden prüfen lassen.
 - **Fotos, Referenzen, Zertifikate:** fehlen noch komplett.
 - **Logo:** neu als einfaches SVG-Zeichen nachgebaut. Original als Vektordatei anfragen.
 
