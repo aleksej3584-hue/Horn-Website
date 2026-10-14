@@ -37,7 +37,7 @@ Auf den Seiten gelb markiert:
 
 Außerdem:
 
-- **Fotos, Referenzen:** fehlen noch.
+- **Fotos:** Unterverteilung und Prüfungsbrett sind eingebaut (`assets/img/`). Weitere Fotos (Team, Fahrzeuge, Werkstatt) und Referenzen fehlen noch.
 - **ISO 9001:** Zurzeit ein neutrales, selbst gestaltetes Siegel. Das offizielle Siegel des Zertifizierers (z. B. TÜV/DEKRA) als Datei anfragen und ersetzen.
 - **Logo:** neu als einfaches SVG-Zeichen nachgebaut. Original als Vektordatei anfragen.
 

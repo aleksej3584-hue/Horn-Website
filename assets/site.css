@@ -394,3 +394,12 @@ html.intro .stage-main > *,html.intro .stage-facts{opacity:0;transform:translate
 .seal.seal-img{height:84px}
 .seal-lg.seal-img{height:120px}
 .seal-foot.seal-img{height:84px}
+
+/* ---------- Fotos ---------- */
+.shot{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.shot img{display:block;width:100%;height:auto;background:#e9e9e5}
+.shot figcaption{font-family:var(--f-mono);font-size:13px;line-height:1.5;color:var(--lab);max-width:60ch}
+.shot-inline{max-width:560px;margin-top:8px}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px, 3vw, 40px);align-items:start}
+.gallery .shot img{aspect-ratio:4 / 5;object-fit:cover}
+@media (max-width:760px){.gallery{grid-template-columns:minmax(0,1fr)}}

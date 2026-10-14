@@ -318,6 +318,24 @@ def seal(cls='seal'):
     return f'<svg class="{cls}" role="img" aria-label="Zertifiziert nach ISO 9001"><use href="#seal"/></svg>'
 
 
+PHOTOS = {
+    'unterverteilung': ('Unterverteilung mit FI-Schutzschaltern, Leitungsschutzschaltern und Überspannungsschutz', 1500, 2000),
+    'pruefungsbrett': ('Prüfungsbrett aus der Abschlussprüfung unseres Auszubildenden, ausgezeichnet unter den Jahrgangsbesten 2025', 1500, 1495),
+}
+
+
+def photo(name, caption=True, cls='shot', eager=False):
+    alt, w, h = PHOTOS[name]
+    cap = f'\n      <figcaption>{e(alt)}</figcaption>' if caption else ''
+    load = 'eager' if eager else 'lazy'
+    return f'''      <figure class="{cls}">
+        <picture>
+          <source type="image/webp" srcset="assets/img/{name}-800.webp 800w, assets/img/{name}-1400.webp 1400w" sizes="(max-width: 760px) 100vw, 50vw">
+          <img src="assets/img/{name}-800.jpg" srcset="assets/img/{name}-800.jpg 800w, assets/img/{name}-1400.jpg 1400w" sizes="(max-width: 760px) 100vw, 50vw" width="{w}" height="{h}" alt="{html.escape(alt)}" loading="{load}" decoding="async">
+        </picture>{cap}
+      </figure>'''
+
+
 def icon(key):
     return f'<svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">{ICONS[key]}</svg>'
 
@@ -371,6 +389,8 @@ def leistungen():
         for kind, txt in content:
             parts.append(f'      <{kind}>{e(txt)}</{kind}>')
         parts.append(more(f'kontakt.html?thema={key}#anfrage', 'Anfrage zu diesem Thema'))
+        if key == 'schaltanlagenbau':
+            parts.append(photo('unterverteilung', cls='shot shot-inline'))
         blocks.append(block(icon(key) + e(lbl), '\n'.join(parts), key))
     body = '\n'.join([
         hero('Leistungen',
@@ -439,6 +459,15 @@ def home():
     </div>
 {steps(None)}
   </section>''',
+        f'''  <section class="home-sec wrap" aria-labelledby="h-arbeit">
+    <div class="home-head">
+      <div><p class="eyebrow">Aus unserer Arbeit</p><h2 id="h-arbeit">Sauber verdrahtet, ordentlich beschriftet.</h2></div>
+    </div>
+    <div class="gallery">
+{photo('unterverteilung')}
+{photo('pruefungsbrett')}
+    </div>
+  </section>''',
         block('Über uns', seal('seal seal-lg') + '''
       <h2>Meisterbetrieb seit 1993, zertifiziert nach ISO 9001.</h2>
       <p>Thomas Horn hat den Betrieb 1993 gegründet. Heute arbeiten bei uns sieben Mitarbeiter und zwei Auszubildende, mit moderner Ausstattung, eigener Werkstatt und einem Qualitätsmanagement nach ISO 9001.</p>
@@ -499,6 +528,7 @@ PHASES = {
             ]),
         ],
         related=['datentechnik', 'schaltanlagenbau', 'sicherheit'],
+        photo='unterverteilung',
     ),
     'wartung.html': dict(
         n=4, name='Wartung', subject='wartung',
@@ -525,6 +555,8 @@ def phase(file):
     for lbl, h2, paras in p['blocks']:
         inner = [f'      <h2>{e(h2)}</h2>'] + [f'      <p>{e(x)}</p>' for x in paras]
         parts.append(block(e(lbl), '\n'.join(inner)))
+    if p.get('photo'):
+        parts.append(block('Aus der Praxis', photo(p['photo'], cls='shot shot-inline')))
     parts.append(block('Ablauf', '      <h2>Von der ersten Frage bis zur Wartung.</h2>\n' + steps(file)))
     parts.append(block('Passende Leistungen', '      <h2>Häufig gefragt in dieser Phase.</h2>\n' + related(p['related'])))
     parts.append(cta_band(subject=p['subject']))
@@ -584,6 +616,9 @@ def ausbildung():
             'Eigene Werkstatt für Verteilungsbau und SPS-Technik im Vorführraum',
             'Abwechslung von der Elektroinstallation über KNX bis zur Datentechnik',
         ])),
+        block('Jahrgangsbeste 2025', '''      <h2>Ausgezeichnet in der Abschlussprüfung.</h2>
+      <p>Unser Auszubildender gehört zu den Jahrgangsbesten 2025. Das Bild zeigt sein Prüfungsbrett aus der Abschlussprüfung: Verteilung mit Kleinsteuerung, Schützen und Klemmleiste, verdrahtet zu Schaltern, Steckdosen und CEE-Anschlüssen.</p>
+''' + photo('pruefungsbrett', caption=False, cls='shot shot-inline')),
         cta_band(),
     ])
     return page('ausbildung.html', 'Ausbildung – Horn Elektrische Anlagen, Neu Wulmstorf',
