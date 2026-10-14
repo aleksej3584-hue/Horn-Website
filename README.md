@@ -9,7 +9,7 @@ Neue Website für **Thomas Horn Elektrische Anlagen**, Bromberger Str. 24a, 2162
 | `index.html` | Startseite (Vollbild mit animiertem Installationsplan, eigenständige Datei mit eingebetteten Schriften) |
 | `leistungen.html` | Alle 11 Leistungen in 6 Bereichen, mit Sprungmarken (`#knx`, `#datentechnik`, `#pruefung`, `#notbeleuchtung`, `#schaltanlagenbau`, `#sicherheit`) |
 | `beratung.html`, `planung.html`, `herstellung.html`, `wartung.html` | Ablauf in 4 Schritten |
-| `ueber-uns.html`, `ausbildung.html` | Unternehmen |
+| `ueber-uns.html`, `ausbildung.html` | Unternehmen, Ausbildung & Jobs |
 | `kontakt.html` | Kontaktdaten und Anfrageformular (öffnet das E-Mail-Programm, speichert nichts) |
 | `impressum.html`, `datenschutz.html` | Rechtliches |
 | `404.html` | Fehlerseite |
@@ -33,10 +33,8 @@ Die Website lädt nichts von fremden Servern.
 
 Auf den Seiten gelb markiert:
 
-- **Impressum:** Umsatzsteuer-ID, Berufsbezeichnung, zuständige Handwerkskammer, Handwerksrolle
-- **Kontakt:** Öffnungszeiten / Erreichbarkeit
-- **Datenschutz:** endgültiger Hosting-Anbieter, Datum; Text rechtlich prüfen lassen
-- **Ausbildung:** Ausbildungsberuf und Beginn
+- **Impressum:** Berufsbezeichnung (Antwort war „Viele“, bitte konkret nachfragen)
+- **Datenschutz:** endgültiger Hosting-Anbieter (Domain liegt bei Netcup); Text rechtlich prüfen lassen
 
 Außerdem:
 
@@ -47,6 +45,6 @@ Außerdem:
 ## Online ansehen
 
 GitHub Pages: Settings → Pages → Deploy from a branch → `main` / root.
-Danach unter https://aleksej3584-hue.github.io/horn-website/
+Danach unter https://aleksej3584-hue.github.io/Horn-Website/
 
 `ANALYSE-horn-elektro.md` enthält die Analyse der alten Seite.

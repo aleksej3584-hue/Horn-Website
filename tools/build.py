@@ -40,7 +40,7 @@ SERVICES_NAV = [
 ]
 COMPANY_NAV = [
     ('ueber-uns.html', 'Über uns'),
-    ('ausbildung.html', 'Ausbildung'),
+    ('ausbildung.html', 'Ausbildung & Jobs'),
     ('beratung.html', 'Beratung'),
     ('planung.html', 'Planung'),
     ('herstellung.html', 'Herstellung'),
@@ -481,31 +481,40 @@ def ueber_uns():
                 body)
 
 
-# ---------------------------------------------------------------- Ausbildung
+# ---------------------------------------------------------------- Ausbildung & Jobs
 def ausbildung():
+    job_azubi = f'mailto:{MAIL}?subject=Bewerbung%20Ausbildung'
+    job_geselle = f'mailto:{MAIL}?subject=Bewerbung%20Geselle'
     body = '\n'.join([
-        hero('Unternehmen &nbsp;·&nbsp; Ausbildung',
-             'Ausbildung im Elektrohandwerk bei Horn.',
-             'Zurzeit lernen zwei Auszubildende in unserem Team. Wir freuen uns über Ihre Bewerbung.',
+        hero('Unternehmen &nbsp;·&nbsp; Ausbildung &amp; Jobs',
+             'Ausbildung und Jobs bei Horn.',
+             'Wir bilden aus zum Elektroniker für Energie- und Gebäudetechnik und suchen Gesellen zur Verstärkung unseres Teams.',
              f'''
     <div class="actions">
-      <a class="btn" href="mailto:{MAIL}?subject=Bewerbung%20Ausbildung"><span>Jetzt bewerben</span>{ARROW}</a>
+      <a class="btn" href="#stellen"><span>Offene Stellen</span>{ARROW}</a>
       <a class="btn btn-ghost" href="{PHONE_TEL}"><span>{PHONE_BTN}</span>{ARROW}</a>
     </div>'''),
-        block('Was Sie erwartet', '''      <h2>Lernen in einem eingespielten Team.</h2>
+        block('Offene Stellen', f'''      <h2>Wir suchen Verstärkung.</h2>
+      <h3>Elektroniker für Energie- und Gebäudetechnik (m/w/d) als Geselle</h3>
+      <p>Sie haben Ihre Ausbildung abgeschlossen und möchten in einem eingespielten Team arbeiten, mit modernen Fahrzeugen, guter Ausstattung und abwechslungsreichen Aufträgen.</p>
+{more(job_geselle, 'Als Geselle bewerben')}
+      <h3>Auszubildende (m/w/d), Ausbildungsbeginn im August</h3>
+      <p>Sie haben Spaß an Technik und arbeiten gern mit den Händen. Wir bilden Sie zum Elektroniker für Energie- und Gebäudetechnik aus.</p>
+{more(job_azubi, 'Für die Ausbildung bewerben')}''', 'stellen'),
+        block('Ausbildung', '''      <h2>Elektroniker für Energie- und Gebäudetechnik.</h2>
+      <p>Ausbildungsbeginn ist im August, die Ausbildung dauert 3,5 Jahre. Zurzeit lernen zwei Auszubildende in unserem Team.</p>
 ''' + ticks([
             'Ein Team aus sieben Fachleuten, vom Gesellen bis zum Meister',
             'Moderne Werkzeuge, Fahrzeuge und Arbeitsbühnen',
             'Eigene Werkstatt für Verteilungsbau und SPS-Technik im Vorführraum',
             'Abwechslung von der Elektroinstallation über KNX bis zur Datentechnik',
-        ]) + '''
-      <p>Ausbildungsberuf und Beginn: <span class="todo">vom Betrieb ergänzen</span></p>'''),
+        ])),
         block('Bewerbung', f'''      <h2>So bewerben Sie sich.</h2>
-      <p>Schicken Sie uns Anschreiben, Lebenslauf und Ihre letzten Zeugnisse per E-Mail an <a href="mailto:{MAIL}?subject=Bewerbung%20Ausbildung">{MAIL}</a>. Fragen beantworten wir gern auch telefonisch unter {PHONE}.</p>'''),
-        cta_band('Fragen zur Ausbildung?', 'Ausbildung'),
+      <p>Schicken Sie uns Anschreiben, Lebenslauf und Ihre letzten Zeugnisse per E-Mail an <a href="mailto:{MAIL}?subject=Bewerbung">{MAIL}</a>. Fragen beantworten wir gern auch telefonisch unter {PHONE}.</p>'''),
+        cta_band('Fragen zur Ausbildung oder zu offenen Stellen?', 'Karriere'),
     ])
-    return page('ausbildung.html', 'Ausbildung – Horn Elektrische Anlagen, Neu Wulmstorf',
-                'Ausbildung im Elektrohandwerk bei Horn Elektrische Anlagen in Neu Wulmstorf. Jetzt bewerben.',
+    return page('ausbildung.html', 'Ausbildung & Jobs – Horn Elektrische Anlagen, Neu Wulmstorf',
+                'Ausbildung zum Elektroniker für Energie- und Gebäudetechnik (Beginn August) und Stellen für Gesellen bei Horn Elektrische Anlagen in Neu Wulmstorf.',
                 body)
 
 
@@ -537,7 +546,11 @@ def kontakt():
       </div>
       <div>
         <dt>Erreichbarkeit</dt>
-        <dd><span class="todo">Öffnungszeiten ergänzen</span></dd>
+        <dd>08:00 – 17:00 Uhr</dd>
+      </div>
+      <div>
+        <dt>Einsatzgebiet</dt>
+        <dd>Von Neu Wulmstorf aus in der Region und darüber hinaus</dd>
       </div>
     </dl>
 
@@ -594,12 +607,12 @@ def impressum():
         <h2>Kontakt</h2>
         <p>Telefon: 040 – 700 61 01<br>E-Mail: <a href="mailto:info@horn-elektro.de">info@horn-elektro.de</a></p>
         <h2>Umsatzsteuer-ID</h2>
-        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: <span class="todo">ergänzen</span></p>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE160962545</p>
         <h2>Berufsrechtliche Angaben</h2>
         <p>Berufsbezeichnung: <span class="todo">z. B. Elektrotechnikermeister, ergänzen</span><br>
            Verliehen in: Deutschland<br>
-           Zuständige Kammer: <span class="todo">Handwerkskammer ergänzen</span><br>
-           Eintragung in die Handwerksrolle: <span class="todo">ergänzen</span><br>
+           Zuständige Kammer: Handwerkskammer Braunschweig-Lüneburg-Stade<br>
+           Eingetragen in die Handwerksrolle der Handwerkskammer Braunschweig-Lüneburg-Stade<br>
            Es gilt die Handwerksordnung (HwO), einsehbar unter <a href="https://www.gesetze-im-internet.de/hwo/" target="_blank" rel="noopener">gesetze-im-internet.de/hwo</a>.</p>
         <h2>Verbraucherstreitbeilegung</h2>
         <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
@@ -646,7 +659,7 @@ def datenschutz():
         <p>Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten (Art. 15 DSGVO), auf Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) sowie auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO). Wenden Sie sich dazu an die oben genannten Kontaktdaten.</p>
         <p>Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist die Landesbeauftragte für den Datenschutz Niedersachsen, Prinzenstraße 5, 30159 Hannover.</p>
 
-        <p style="margin-top:20px;font-family:var(--f-mono);font-size:13px;color:var(--lab)">Stand: <span class="todo">Datum ergänzen</span></p>
+        <p style="margin-top:20px;font-family:var(--f-mono);font-size:13px;color:var(--lab)">Stand: Oktober 2026</p>
       </div>'''
     body = '\n'.join([
         hero('Rechtliches', 'Datenschutz', 'Wir berücksichtigen die gesetzlichen Vorschriften.'),
