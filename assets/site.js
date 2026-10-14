@@ -10,6 +10,22 @@
   }
 
   /* ---------- background: installation diagram ---------- */
+  var hv=document.querySelector('.stage-bg .circuit');
+  if(hv&&window.hornCircuit){
+    var tall=function(){return innerWidth<=1023&&innerWidth<=innerHeight;};
+    window.hornCircuit(hv,{
+      region:function(W,H){
+        if(tall())return {x0:W*0.07,y0:H*0.1,x1:W*0.93,y1:H*0.29};
+        return {x0:W*0.5,y0:H*0.2,x1:W-Math.max(40,W*0.04),y1:H*0.82};
+      },
+      circuits:function(){return tall()?2:4;},
+      grid:function(W,H){return tall()?(W<600?15:20):Math.max(18,Math.min(28,Math.round(H/30)));},
+      ink:'18,18,18',
+      accent:'232,156,0',
+      alpha:1.25,
+      maxPulses:5
+    });
+  }
   var cv=document.querySelector('.page-glow .circuit');
   if(cv&&window.hornCircuit){
     var portrait=function(W,H){return W<=1023&&innerWidth<=innerHeight;};

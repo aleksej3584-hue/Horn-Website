@@ -346,3 +346,47 @@ html.intro .logo,html.intro .ni,html.intro .btn-top,html.intro .burger{opacity:0
 
 .block p a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-2);transition:color .2s}
 @media (hover:hover){.block p a:hover{color:var(--acc-t)}}
+
+/* ---------- Startseite ---------- */
+.stage-bg{position:absolute;inset:0 0 auto 0;height:100svh;min-height:600px;pointer-events:none;z-index:0}
+.stage-bg .circuit{position:absolute;inset:0;width:100%;height:100%;display:block;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0 40%,#000 60%);mask-image:linear-gradient(90deg,transparent 0 40%,#000 60%)}
+.stage{position:relative;display:flex;flex-direction:column;min-height:calc(100vh - var(--hdh) * var(--s));min-height:calc(100svh - var(--hdh) * var(--s));
+  padding-block:clamp(24px, 5vh, 64px) clamp(28px, 6vh, 64px)}
+.stage-main{margin-block:auto;display:flex;flex-direction:column;align-items:flex-start;max-width:100%}
+.stage h1{margin-top:24px;font-weight:700;font-size:max(34px, calc(68.7 * var(--s)));line-height:1.1;letter-spacing:-.035em}
+.stage .lead{margin-top:26px}
+.stage-facts{margin-top:clamp(36px, 8vh, 96px)}
+.home-sec{padding-block:clamp(56px, 8vw, 104px);border-top:1px solid var(--line)}
+.home-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 32px;margin-bottom:clamp(28px, 4vw, 48px)}
+.home-head h2{margin-top:20px;font-weight:700;font-size:clamp(30px, 3.2vw, 48px);line-height:1.08;letter-spacing:-.035em;text-wrap:balance;max-width:16em}
+.home-head .more{align-self:flex-end}
+@media (max-width:1023px) and (max-aspect-ratio:1/1){
+  .stage-bg{height:100svh}
+  .stage-bg .circuit{-webkit-mask-image:linear-gradient(180deg,#000 0 30%,transparent 38%);mask-image:linear-gradient(180deg,#000 0 30%,transparent 38%)}
+  .stage{padding-top:calc(35svh - var(--hdh) * var(--s))}
+  .stage-main{margin-top:0}
+}
+@media (max-width:599px){
+  .stage .eyebrow{font-size:11px;letter-spacing:.16em}
+  .stage h1{font-size:clamp(30px, 9vw, 40px)}
+  .stage .lead{font-size:14px;letter-spacing:-.04em}
+  .stage-facts{flex-wrap:nowrap}
+  .stage-facts .fact{padding-right:14px;margin-right:14px}
+  .stage-facts .num{font-size:24px}
+  .stage-facts .lab{font-size:13.5px}
+}
+.stage-main > *,.stage-facts{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+.stage-main > :nth-child(2){transition-delay:.08s}
+.stage-main > :nth-child(3){transition-delay:.2s}
+.stage-main > :nth-child(4){transition-delay:.3s}
+.stage-facts{transition-delay:.42s}
+html.intro .stage-main > *,html.intro .stage-facts{opacity:0;transform:translateY(16px)}
+
+/* ---------- ISO-9001-Siegel ---------- */
+.seal{display:block;width:76px;height:76px;color:var(--ink);flex:none}
+.seal-lg{width:96px;height:96px}
+.block-body > .seal-lg{margin-bottom:4px}
+.seal-foot{width:68px;height:68px;margin-top:22px}
+.fact-seal{justify-content:center}
+@media (max-width:599px){.stage-facts .fact-seal{display:none}}

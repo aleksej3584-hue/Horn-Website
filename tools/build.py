@@ -3,8 +3,8 @@
 
     python3 tools/build.py
 
-- index.html: Startseite aus tools/home.src.html, Schriften als base64 eingebettet
-  (bleibt eine einzelne, eigenständige Datei).
+- index.html: Startseite mit Installationsplan und Abschnitten (Leistungen, Ablauf, Über uns, Karriere)
+
 - Alle Unterseiten aus den Inhalten unten, mit gemeinsamem Header, Menü und Footer.
 - Weiterleitungen von den alten WordPress-Adressen, sitemap.xml, robots.txt, 404.html.
 """
@@ -154,6 +154,7 @@ def footer():
         <span class="wm"><b>HORN</b><small>Elektrische Anlagen</small></span>
       </a>
       <p>Thomas Horn Elektrische Anlagen<br>Bromberger Str. 24a<br>21629 Neu Wulmstorf</p>
+      {seal('seal seal-foot')}
     </div>
     <div class="foot-col">
       <p class="foot-h">Kontakt</p>
@@ -177,13 +178,21 @@ def footer():
     </div>
   </div>
   <div class="foot-base">
-    <span>© <span data-year>2026</span> Thomas Horn Elektrische Anlagen · Meisterbetrieb seit 1993</span>
+    <span>© <span data-year>2026</span> Thomas Horn Elektrische Anlagen · Meisterbetrieb seit 1993 · ISO 9001</span>
     <nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
   </div>
 </footer>'''
 
 
 SVGDEFS = '''<svg class="svgdefs" aria-hidden="true" focusable="false">
+  <symbol id="seal" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="57" fill="none" stroke="currentColor" stroke-width="2"/>
+    <circle cx="60" cy="60" r="49" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2 3"/>
+    <rect x="34" y="70" width="52" height="4" fill="#fbba00"/>
+    <text x="60" y="44" text-anchor="middle" font-family="JB, monospace" font-size="11" letter-spacing="3" fill="currentColor">ISO</text>
+    <text x="60" y="66" text-anchor="middle" font-family="SG, sans-serif" font-weight="700" font-size="25" letter-spacing="-.5" fill="currentColor">9001</text>
+    <text x="60" y="88" text-anchor="middle" font-family="JB, monospace" font-size="7.2" letter-spacing="1.2" fill="currentColor">ZERTIFIZIERT</text>
+  </symbol>
   <symbol id="arrow" viewBox="0 0 21.5 18"><path d="M0 9H20.1M12.1 1L20.1 9L12.1 17" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
   <symbol id="chev" viewBox="0 0 11 6.5"><path d="M1 1L5.5 5L10 1" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
 </svg>'''
@@ -193,7 +202,7 @@ def ver(rel):
     return hashlib.sha1(open(os.path.join(ROOT, rel), 'rb').read()).hexdigest()[:8]
 
 
-def page(file, title, desc, body, active=None, noindex=False):
+def page(file, title, desc, body, active=None, noindex=False, bg=None, head_extra=''):
     canonical = DOMAIN + ('' if file == 'index.html' else file)
     robots = '\n<meta name="robots" content="noindex">' if noindex else ''
     return f'''<!DOCTYPE html>
@@ -210,7 +219,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 <meta property="og:type" content="website">
 <meta property="og:url" content="{canonical}">
 <meta property="og:locale" content="de_DE">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">{head_extra}
 <link rel="preload" href="assets/fonts/sg.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/jb.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css?v={ver('assets/site.css')}">
@@ -223,7 +232,7 @@ def page(file, title, desc, body, active=None, noindex=False):
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 {SVGDEFS}
-<div class="page-glow" aria-hidden="true"><canvas class="circuit"></canvas></div>
+{bg or '<div class="page-glow" aria-hidden="true"><canvas class="circuit"></canvas></div>'}
 {header(active or file)}
 
 <main id="inhalt">
@@ -298,6 +307,10 @@ ICONS = {
 }
 
 
+def seal(cls='seal'):
+    return f'<svg class="{cls}" role="img" aria-label="Zertifiziert nach ISO 9001"><use href="#seal"/></svg>'
+
+
 def icon(key):
     return f'<svg class="ico" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">{ICONS[key]}</svg>'
 
@@ -364,6 +377,75 @@ def leistungen():
     return page('leistungen.html', 'Leistungen – Horn Elektrische Anlagen, Neu Wulmstorf',
                 'KNX-Gebäudesteuerung, Daten- und Glasfasertechnik, Prüfung von Elektroanlagen und Geräten, Notbeleuchtung, Schaltanlagenbau, Sprech- und Sicherheitstechnik.',
                 body)
+
+
+# ---------------------------------------------------------------- Startseite
+HOME_SVC = {
+    'knx': 'Licht, Heizung und Sonnenschutz zentral steuern',
+    'datentechnik': 'EDV-Netzwerke und LWL-Verkabelung',
+    'pruefung': 'Rechtssichere Prüfung von Anlagen und Geräten',
+    'notbeleuchtung': 'Sicherheitsbeleuchtung nach DIN und VDE',
+    'schaltanlagenbau': 'Schaltschränke aus eigener Werkstatt',
+    'sicherheit': 'Sprechanlagen, Zutritt und Schließanlagen',
+}
+
+JSONLD = """
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Electrician","name":"Thomas Horn Elektrische Anlagen","url":"https://horn-elektro.de/","telephone":"+49 40 7006101","email":"info@horn-elektro.de","foundingDate":"1993","openingHours":"Mo-Fr 08:00-17:00","founder":{"@type":"Person","name":"Thomas Horn"},"address":{"@type":"PostalAddress","streetAddress":"Bromberger Str. 24a","postalCode":"21629","addressLocality":"Neu Wulmstorf","addressCountry":"DE"}}
+</script>"""
+
+
+def home():
+    idx = '\n'.join(
+        f'      <a href="leistungen.html#{k}">{icon(k)}<b>{e(t)}</b><span>{e(HOME_SVC[k])}</span></a>'
+        for k, t in SERVICES_NAV)
+    body = '\n'.join([
+        f'''  <section class="stage wrap" aria-labelledby="h1">
+    <div class="stage-main">
+      <p class="eyebrow">Meisterbetrieb seit 1993 · ISO 9001</p>
+      <h1 id="h1">Elektrotechnik, die<br>einfach funktioniert</h1>
+      <p class="lead">Beratung, Planung, Installation, Wartung.<br>Ihr Meisterbetrieb in Neu Wulmstorf.</p>
+      <div class="actions">
+        <a class="btn" href="kontakt.html#anfrage"><span>Projekt anfragen</span>{ARROW}</a>
+        <a class="btn btn-ghost" href="leistungen.html"><span>Leistungen</span>{ARROW}</a>
+      </div>
+    </div>
+    <div class="facts stage-facts" aria-label="Kennzahlen">
+      <div class="fact"><span class="num">1993</span><span class="lab">Gegründet</span></div>
+      <div class="fact"><span class="num">11</span><span class="lab">Leistungen</span></div>
+      <div class="fact"><span class="num">7+2</span><span class="lab">Mitarbeiter + Azubis</span></div>
+      <div class="fact fact-seal">{seal()}</div>
+    </div>
+  </section>''',
+        f'''  <section class="home-sec wrap" aria-labelledby="h-leist">
+    <div class="home-head">
+      <div><p class="eyebrow">Leistungen</p><h2 id="h-leist">Elf Leistungen in sechs Bereichen.</h2></div>
+{more('leistungen.html', 'Alle Leistungen')}
+    </div>
+    <nav class="index" aria-label="Leistungsbereiche">
+{idx}
+    </nav>
+  </section>''',
+        f'''  <section class="home-sec wrap" aria-labelledby="h-ablauf">
+    <div class="home-head">
+      <div><p class="eyebrow">Ablauf</p><h2 id="h-ablauf">Von der ersten Frage bis zur Wartung.</h2></div>
+    </div>
+{steps(None)}
+  </section>''',
+        block('Über uns', seal('seal seal-lg') + '''
+      <h2>Meisterbetrieb seit 1993, zertifiziert nach ISO 9001.</h2>
+      <p>Thomas Horn hat den Betrieb 1993 gegründet. Heute arbeiten bei uns sieben Mitarbeiter und zwei Auszubildende, mit moderner Ausstattung, eigener Werkstatt und einem Qualitätsmanagement nach ISO 9001.</p>
+''' + more('ueber-uns.html', 'Mehr über uns')),
+        block('Karriere', '''      <h2>Wir suchen Gesellen und Azubis.</h2>
+      <p>Elektroniker für Energie- und Gebäudetechnik (m/w/d): als Geselle oder in der Ausbildung mit Beginn im August.</p>
+''' + more('ausbildung.html#stellen', 'Offene Stellen ansehen')),
+        cta_band(),
+    ])
+    return page('index.html', 'Horn Elektrische Anlagen – Elektrotechnik in Neu Wulmstorf seit 1993',
+                'Thomas Horn Elektrische Anlagen in Neu Wulmstorf: Beratung, Planung, Installation und Wartung. KNX, Daten- und Glasfasertechnik, Anlagenprüfung, Notbeleuchtung, Schaltanlagenbau. Meisterbetrieb seit 1993, ISO 9001.',
+                body, active='index.html',
+                bg='<div class="stage-bg" aria-hidden="true"><canvas class="circuit"></canvas></div>',
+                head_extra=JSONLD)
 
 
 # ---------------------------------------------------------------- Ablauf pages
@@ -469,6 +551,9 @@ def ueber_uns():
 ''' + ticks(['Zeitgemäße Werkzeuge und Fahrzeugausstattung', 'Arbeitsbühnen', 'Verteilungsplanung und -bau in eigener Werkstatt']) + '''
         </div>
       </div>'''),
+        block('Qualität', seal('seal seal-lg') + '''
+      <h2>Meisterbetrieb, zertifiziert nach ISO 9001.</h2>
+      <p>Als Meisterbetrieb im Elektrotechniker-Handwerk arbeiten wir mit einem nach ISO 9001 zertifizierten Qualitätsmanagement. Abläufe, Prüfungen und Dokumentation sind klar geregelt, damit Sie sich auf das Ergebnis verlassen können.</p>'''),
         block('Auftreten', '''      <h2>Pünktlich, sauber, einheitlich.</h2>
       <p>Für ein kompetentes Auftreten beim Kunden sorgt unser einheitliches Erscheinungsbild vom Lehrling bis zum Meister. Saubere Kleidung und neue Fahrzeuge sind für uns selbstverständlich. Pünktliches Erscheinen hat oberste Priorität.</p>'''),
         block('Unser Ziel', '''      <h2>Kunden, die wiederkommen.</h2>
@@ -609,7 +694,7 @@ def impressum():
         <h2>Umsatzsteuer-ID</h2>
         <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: DE160962545</p>
         <h2>Berufsrechtliche Angaben</h2>
-        <p>Berufsbezeichnung: <span class="todo">z. B. Elektrotechnikermeister, ergänzen</span><br>
+        <p>Berufsbezeichnung: Meisterbetrieb im Elektrotechniker-Handwerk<br>
            Verliehen in: Deutschland<br>
            Zuständige Kammer: Handwerkskammer Braunschweig-Lüneburg-Stade<br>
            Eingetragen in die Handwerksrolle der Handwerkskammer Braunschweig-Lüneburg-Stade<br>
@@ -731,13 +816,8 @@ def write(rel, content):
 
 
 def main():
-    fonts = os.path.join(ROOT, 'assets', 'fonts')
-    b64 = lambda n: base64.b64encode(open(os.path.join(fonts, n), 'rb').read()).decode()
-    home = open(os.path.join(ROOT, 'tools', 'home.src.html'), encoding='utf-8').read()
-    circuit = open(os.path.join(ROOT, 'assets', 'circuit.js'), encoding='utf-8').read()
-    write('index.html', home.replace('__SG__', b64('sg.woff2')).replace('__JB__', b64('jb.woff2')).replace('__CIRCUIT__', circuit))
-
     pages = {
+        'index.html': home(),
         'leistungen.html': leistungen(),
         'ueber-uns.html': ueber_uns(),
         'ausbildung.html': ausbildung(),
@@ -755,12 +835,12 @@ def main():
     for old, target in REDIRECTS.items():
         write(f'{old}/index.html', redirect(target))
 
-    urls = ['index.html'] + list(pages)
+    urls = list(pages)
     sm = '\n'.join(f'  <url><loc>{DOMAIN}{"" if u == "index.html" else u}</loc></url>'
                    for u in urls if u not in ('impressum.html', 'datenschutz.html'))
     write('sitemap.xml', f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sm}\n</urlset>\n')
     write('robots.txt', f'User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}sitemap.xml\n')
-    print('built', len(pages) + 1, 'pages,', len(REDIRECTS), 'redirects')
+    print('built', len(pages), 'pages,', len(REDIRECTS), 'redirects')
 
 
 if __name__ == '__main__':

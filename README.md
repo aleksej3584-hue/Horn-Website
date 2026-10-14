@@ -6,7 +6,7 @@ Neue Website für **Thomas Horn Elektrische Anlagen**, Bromberger Str. 24a, 2162
 
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite (Vollbild mit animiertem Installationsplan, eigenständige Datei mit eingebetteten Schriften) |
+| `index.html` | Startseite (Installationsplan im ersten Bildschirm, darunter Leistungen, Ablauf, Über uns, Karriere) |
 | `leistungen.html` | Alle 11 Leistungen in 6 Bereichen, mit Sprungmarken (`#knx`, `#datentechnik`, `#pruefung`, `#notbeleuchtung`, `#schaltanlagenbau`, `#sicherheit`) |
 | `beratung.html`, `planung.html`, `herstellung.html`, `wartung.html` | Ablauf in 4 Schritten |
 | `ueber-uns.html`, `ausbildung.html` | Unternehmen, Ausbildung & Jobs |
@@ -18,7 +18,7 @@ Neue Website für **Thomas Horn Elektrische Anlagen**, Bromberger Str. 24a, 2162
 
 ## Bearbeiten
 
-Texte und Seiten stehen in `tools/build.py`, die Startseite in `tools/home.src.html`.
+Alle Texte und Seiten (auch die Startseite) stehen in `tools/build.py`.
 Nach jeder Änderung neu bauen:
 
 ```
@@ -26,19 +26,19 @@ python3 tools/build.py
 ```
 
 Gemeinsames Design der Unterseiten: `assets/site.css`, Verhalten (Menü, Formular): `assets/site.js`.
-Animierter Installationsplan (Hintergrund): `assets/circuit.js`, wird in die Startseite eingebettet.
+Animierter Installationsplan (Hintergrund): `assets/circuit.js`.
 Die Website lädt nichts von fremden Servern.
 
 ## Offene Punkte (vom Kunden)
 
 Auf den Seiten gelb markiert:
 
-- **Impressum:** Berufsbezeichnung (Antwort war „Viele“, bitte konkret nachfragen)
 - **Datenschutz:** endgültiger Hosting-Anbieter (Domain liegt bei Netcup); Text rechtlich prüfen lassen
 
 Außerdem:
 
-- **Fotos, Referenzen, Zertifikate:** fehlen noch komplett.
+- **Fotos, Referenzen:** fehlen noch.
+- **ISO 9001:** Zurzeit ein neutrales, selbst gestaltetes Siegel. Das offizielle Siegel des Zertifizierers (z. B. TÜV/DEKRA) als Datei anfragen und ersetzen.
 - **Logo:** neu als einfaches SVG-Zeichen nachgebaut. Original als Vektordatei anfragen.
 
 ## Online ansehen
