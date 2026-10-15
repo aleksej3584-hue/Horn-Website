@@ -324,6 +324,8 @@ PHOTOS = {
     'zaehlerschrank': ('Zählerschrank mit Zählerplatz, Vorsicherungen, Fehlerstrom- und Leitungsschutzschaltern', 1500, 2000),
     'zaehlerschrank-montage': ('Zählerschrank und Unterverteilung während der Installation', 900, 1600),
     'steuerung': ('Steuerungsbau mit Motorschutzschalter, Schützen und Reihenklemmen', 1179, 1544),
+    'aykan': ('Aykan Gezici, unser Auszubildender und Jahrgangsbester 2025, stellt sein Prüfungsbrett vor', 2000, 1333),
+    'aykan-hoch': ('Aykan Gezici, Jahrgangsbester 2025, stellt sein Prüfungsbrett aus der Abschlussprüfung vor', 999, 1333),
 }
 
 
@@ -471,7 +473,7 @@ def home():
 {photo('zaehlerschrank')}
 {photo('steuerung')}
 {photo('unterverteilung')}
-{photo('pruefungsbrett')}
+{photo('aykan-hoch')}
     </div>
   </section>''',
         block('Über uns', seal('seal seal-lg') + '''
@@ -624,9 +626,9 @@ def ausbildung():
             'Eigene Werkstatt für Verteilungsbau und SPS-Technik im Vorführraum',
             'Abwechslung von der Elektroinstallation über KNX bis zur Datentechnik',
         ])),
-        block('Jahrgangsbeste 2025', '''      <h2>Ausgezeichnet in der Abschlussprüfung.</h2>
-      <p>Unser Auszubildender gehört zu den Jahrgangsbesten 2025. Das Bild zeigt sein Prüfungsbrett aus der Abschlussprüfung: Verteilung mit Kleinsteuerung, Schützen und Klemmleiste, verdrahtet zu Schaltern, Steckdosen und CEE-Anschlüssen.</p>
-''' + photo('pruefungsbrett', caption=False, cls='shot shot-inline')),
+        block('Jahrgangsbeste 2025', '''      <h2>Aykan Gezici gehört zu den Jahrgangsbesten 2025.</h2>
+      <p>Unser Auszubildender Aykan Gezici hat seine Abschlussprüfung als einer der Jahrgangsbesten 2025 bestanden. Sein Prüfungsbrett zeigt eine Verteilung mit Kleinsteuerung, Schützen und Klemmleiste, verdrahtet zu Schaltern, Steckdosen und CEE-Anschlüssen.</p>
+''' + '\n      <div class="gallery gallery-43">\n' + photo('aykan') + '\n' + photo('pruefungsbrett') + '\n      </div>'),
         cta_band(),
     ])
     return page('ausbildung.html', 'Ausbildung – Horn Elektrische Anlagen, Neu Wulmstorf',
