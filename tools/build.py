@@ -3,7 +3,7 @@
 
     python3 tools/build.py
 
-- index.html: Startseite mit Installationsplan und Abschnitten (Leistungen, Ablauf, Über uns, Karriere)
+- index.html: Startseite mit Installationsplan und Abschnitten (Leistungen, Ablauf, Fotos, Über uns)
 
 - Alle Unterseiten aus den Inhalten unten, mit gemeinsamem Header, Menü und Footer.
 - Weiterleitungen von den alten WordPress-Adressen, sitemap.xml, robots.txt, 404.html.
@@ -52,7 +52,7 @@ STEPS = [
     ('beratung.html', 'Beratung', 'Bedarf klären, vor Ort aufnehmen'),
     ('planung.html', 'Planung', 'Lösung, Termine und Ablauf festlegen'),
     ('herstellung.html', 'Herstellung', 'Installation durch unsere Fachleute'),
-    ('wartung.html', 'Wartung', 'Prüfen, instand halten, Notfälle'),
+    ('wartung.html', 'Wartung', 'Prüfen, instand halten, reparieren'),
 ]
 
 
@@ -320,12 +320,12 @@ def seal(cls='seal'):
 
 PHOTOS = {
     'unterverteilung': ('Unterverteilung mit FI-Schutzschaltern, Leitungsschutzschaltern und Überspannungsschutz', 1500, 2000),
-    'pruefungsbrett': ('Prüfungsbrett aus der Abschlussprüfung unseres Auszubildenden, ausgezeichnet unter den Jahrgangsbesten 2025', 1500, 1495),
+    'pruefungsbrett': ('Das Prüfungsbrett von Aykan Gezici aus der Abschlussprüfung', 1500, 1495),
     'zaehlerschrank': ('Zählerschrank mit Zählerplatz, Vorsicherungen, Fehlerstrom- und Leitungsschutzschaltern', 1500, 2000),
     'zaehlerschrank-montage': ('Zählerschrank und Unterverteilung während der Installation', 900, 1600),
     'steuerung': ('Steuerungsbau mit Motorschutzschalter, Schützen und Reihenklemmen', 1179, 1544),
-    'aykan': ('Aykan Gezici, unser Auszubildender und Jahrgangsbester 2025, stellt sein Prüfungsbrett vor', 2000, 1333),
-    'aykan-hoch': ('Aykan Gezici, Jahrgangsbester 2025, stellt sein Prüfungsbrett aus der Abschlussprüfung vor', 999, 1333),
+    'aykan': ('Aykan Gezici, einer der Jahrgangsbesten 2025, stellt sein Prüfungsbrett vor', 2000, 1333),
+    'aykan-hoch': ('Aykan Gezici, einer der Jahrgangsbesten 2025, stellt sein Prüfungsbrett vor', 999, 1333),
 }
 
 
@@ -364,7 +364,7 @@ SERVICES = [
         ('p', 'Jeder Unternehmer muss seinen Mitarbeitern sichere elektrische Arbeitsmittel bereitstellen. Mit einer professionellen Betriebsmittelprüfung stellen Sie sicher, dass alle Geräte sicher sind und ordnungsgemäß funktionieren. Nur eine rechtskonform durchgeführte Prüfung weist nach, dass Sie dieser Pflicht nachgekommen sind.'),
         ('p', 'Ortsveränderliche Elektrogeräte dürfen ausschließlich Elektrofachkräfte prüfen. Unsere Fachkräfte erfüllen diese Anforderungen.'),
     ]),
-    ('notbeleuchtung', 'Sicherheit', 'Notbeleuchtungsanlagen', [
+    ('notbeleuchtung', 'Sicherheitslicht', 'Notbeleuchtungsanlagen', [
         ('p', 'Im Gefahrenfall zeigt die Notbeleuchtung Menschen an einem unbekannten Ort den Weg. Gerade in Gebäuden mit Publikumsverkehr halten wir die Vorschriften nach DIN und VDE zur Notbeleuchtung umfassend ein.'),
         ('p', 'Jedes Gebäude ist anders. Deshalb planen wir die Sicherheitsbeleuchtung vorab und besprechen sie mit Ihnen, bevor wir sie installieren.'),
     ]),
@@ -424,7 +424,7 @@ HOME_SVC = {
 
 JSONLD = """
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Electrician","name":"Thomas Horn Elektrische Anlagen","url":"https://horn-elektro.de/","telephone":"+49 40 7006101","email":"info@horn-elektro.de","foundingDate":"1993","openingHours":"Mo-Fr 08:00-17:00","founder":{"@type":"Person","name":"Thomas Horn"},"address":{"@type":"PostalAddress","streetAddress":"Bromberger Str. 24a","postalCode":"21629","addressLocality":"Neu Wulmstorf","addressCountry":"DE"}}
+{"@context":"https://schema.org","@type":"Electrician","name":"Thomas Horn Elektrische Anlagen","url":"https://horn-elektro.de/","telephone":"+49 40 7006101","email":"info@horn-elektro.de","foundingDate":"1993","founder":{"@type":"Person","name":"Thomas Horn"},"address":{"@type":"PostalAddress","streetAddress":"Bromberger Str. 24a","postalCode":"21629","addressLocality":"Neu Wulmstorf","addressCountry":"DE"}}
 </script>"""
 
 
@@ -497,7 +497,7 @@ PHASES = {
         lead='Nutzen Sie unsere Beratung und langjährige Projekterfahrung.',
         desc='Elektroberatung von Horn Elektrische Anlagen in Neu Wulmstorf: für Neubau und Renovierung, mit Aufnahme vor Ort.',
         blocks=[
-            ('Was wir tun', 'Moderne Lösungen für jeden Anspruch.', [
+            ('Was wir tun', 'Beratung vor Ort, für Neubau und Renovierung.', [
                 'Wir kennen die Bedürfnisse unserer Kunden und bieten Ihnen als Elektriker moderne Lösungen für jeden Anspruch.',
                 'Sie planen eine Renovierung oder einen Neubau? Wir unterstützen Sie dabei. Unser Fachpersonal nimmt Ihr Projekt auch vor Ort genau auf.',
                 'Wir überzeugen mit freundlichem und fachkundigem Service, der weit über die reine Installation einzelner Komponenten hinausgeht.',
@@ -511,7 +511,7 @@ PHASES = {
         lead='Möglichst vorher wissen, was später alles zu beachten ist.',
         desc='Elektroplanung von Horn Elektrische Anlagen: von der konventionellen Installation bis zur komplexen Automatisierung, mit Termin- und Zeitplanung.',
         blocks=[
-            ('Was wir tun', 'Eine gute Planung ist die Voraussetzung für jedes Projekt.', [
+            ('Was wir tun', 'Erst sorgfältig planen, dann sauber bauen.', [
                 'Eine ordentliche und detaillierte Planung ist die Voraussetzung für jedes erfolgreiche Projekt. Unser erfahrenes Team findet für Ihre Planung eine Lösung und für jeden Wunsch eine Möglichkeit.',
                 'Ob konventionelle Elektroinstallation oder komplexe Automatisierung: Planung und Organisation stimmen wir eng mit Ihnen ab. Terminplanung und Zeitmanagement schneiden wir auf jedes Projekt zu.',
             ]),
@@ -528,7 +528,7 @@ PHASES = {
         desc='Elektroinstallation für Neubau und Sanierung: Gebäudetechnik, Licht- und Netzwerktechnik vom Meisterbetrieb Horn in Neu Wulmstorf.',
         blocks=[
             ('Was wir tun', 'Neubau und Sanierung aus einer Hand.', [
-                'Die Firma Horn ist seit Jahren Ihr Meisterbetrieb für hochwertige Elektroinstallationen und Gebäudetechnik sowie Licht- und Netzwerktechnik.',
+                'Die Firma Horn ist seit 1993 Ihr Meisterbetrieb für hochwertige Elektroinstallationen und Gebäudetechnik sowie Licht- und Netzwerktechnik.',
                 'Mit unseren erfahrenen Fachleuten bieten wir Ihnen die gesamte Kompetenz für Ihre Neubau- oder Sanierungsprojekte. Dabei stehen Qualität, Nachhaltigkeit, Klimafreundlichkeit und Umweltschutz im Fokus.',
             ]),
             ('Ausstattung', 'Eigene Werkstatt, moderne Fahrzeuge.', [
@@ -544,12 +544,12 @@ PHASES = {
         lead='Reparatur und Wartung von Elektroanlagen in Büros, Läden und Werkstätten.',
         desc='Wartung, Reparatur und Instandhaltung von Elektroanlagen, Wartungs- und Rufbereitschaftsverträge: Horn Elektrische Anlagen, Neu Wulmstorf.',
         blocks=[
-            ('Was wir tun', 'Wartung, Instandhaltung und Hilfe im Notfall.', [
-                'Als Experten für Wartungs- und Reparaturarbeiten in der Elektrotechnik bieten wir Ihnen umfangreichen Service für die Wartung und Instandhaltung Ihrer Elektroanlagen. Für Notfälle steht Ihnen unser Instandhaltungsservice zur Verfügung.',
+            ('Was wir tun', 'Wartung, Instandhaltung und Reparatur.', [
+                'Als Experten für Wartungs- und Reparaturarbeiten in der Elektrotechnik bieten wir Ihnen umfangreichen Service für die Wartung und Instandhaltung Ihrer Elektroanlagen.',
                 'Durch regelmäßige Fachkurse sind wir immer auf dem neuesten Stand der gesetzlichen Bestimmungen.',
             ]),
             ('Verträge', 'Wartungs- und Rufbereitschaftsverträge.', [
-                'Maximale Sicherheit und Kostenkontrolle bieten Ihnen unsere Wartungs- und Rufbereitschaftsverträge. Sprechen Sie uns an, wir stellen den passenden Umfang für Ihren Betrieb zusammen.',
+                'Maximale Sicherheit und Kostenkontrolle bieten Ihnen unsere Wartungs- und Rufbereitschaftsverträge. Mit einem Rufbereitschaftsvertrag sind wir bei Störungen schnell für Sie da. Sprechen Sie uns an, wir stellen den passenden Umfang für Ihren Betrieb zusammen.',
             ]),
         ],
         related=['pruefung', 'notbeleuchtung'],
@@ -627,7 +627,7 @@ def ausbildung():
             'Abwechslung von der Elektroinstallation über KNX bis zur Datentechnik',
         ])),
         block('Jahrgangsbeste 2025', '''      <h2>Aykan Gezici gehört zu den Jahrgangsbesten 2025.</h2>
-      <p>Unser Auszubildender Aykan Gezici hat seine Abschlussprüfung als einer der Jahrgangsbesten 2025 bestanden. Sein Prüfungsbrett zeigt eine Verteilung mit Kleinsteuerung, Schützen und Klemmleiste, verdrahtet zu Schaltern, Steckdosen und CEE-Anschlüssen.</p>
+      <p>Aykan Gezici hat seine Ausbildung bei uns gemacht und die Abschlussprüfung als einer der Jahrgangsbesten 2025 bestanden. Sein Prüfungsbrett zeigt eine Verteilung mit Kleinsteuerung, Schützen und Klemmleiste, verdrahtet zu Schaltern, Steckdosen und CEE-Anschlüssen.</p>
 ''' + '\n      <div class="gallery gallery-43">\n' + photo('aykan') + '\n' + photo('pruefungsbrett') + '\n      </div>'),
         cta_band(),
     ])
