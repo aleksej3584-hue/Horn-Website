@@ -33,7 +33,7 @@ Die Website lädt nichts von fremden Servern.
 
 Auf den Seiten gelb markiert:
 
-- **Datenschutz:** Hosting bei netcup. Anschrift mit netcup-Impressum abgleichen und im netcup-Kundenbereich den Vertrag zur Auftragsverarbeitung (AVV) abschließen; Text rechtlich prüfen lassen
+- **Datenschutz:** Hosting bei netcup (Anschrift laut netcup-Impressum, Stand 2025: Emmy-Noether-Straße 10, 76131 Karlsruhe). Im netcup-Kundenbereich den Vertrag zur Auftragsverarbeitung (AVV) abschließen; Text rechtlich prüfen lassen
 
 Außerdem:
 
