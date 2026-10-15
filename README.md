@@ -7,7 +7,7 @@ Neue Website für **Thomas Horn Elektrische Anlagen**, Bromberger Str. 24a, 2162
 | Datei | Inhalt |
 |---|---|
 | `index.html` | Startseite (Installationsplan im ersten Bildschirm, darunter Leistungen, Ablauf, Fotos, Über uns) |
-| `leistungen.html` | Alle 11 Leistungen in 6 Bereichen, mit Sprungmarken (`#knx`, `#datentechnik`, `#pruefung`, `#notbeleuchtung`, `#schaltanlagenbau`, `#sicherheit`) |
+| `leistungen.html` | Alle 12 Leistungen in 6 Bereichen, mit Sprungmarken (`#knx`, `#datentechnik`, `#pruefung`, `#notbeleuchtung`, `#schaltanlagenbau`, `#sicherheit`) |
 | `beratung.html`, `planung.html`, `herstellung.html`, `wartung.html` | Ablauf in 4 Schritten |
 | `ueber-uns.html`, `ausbildung.html` | Unternehmen, Ausbildung |
 | `kontakt.html` | Kontaktdaten und Anfrageformular (öffnet das E-Mail-Programm, speichert nichts) |

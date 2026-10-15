@@ -33,7 +33,7 @@ LOGO_SVG = '''<svg viewBox="0 0 46 46" aria-hidden="true">
 SERVICES_NAV = [
     ('knx', 'KNX-Gebäudesteuerung'),
     ('datentechnik', 'Daten- & Glasfasertechnik'),
-    ('pruefung', 'Anlagen- & Geräteprüfung'),
+    ('pruefung', 'E-CHECK & Prüfung'),
     ('notbeleuchtung', 'Notbeleuchtung'),
     ('schaltanlagenbau', 'Schaltanlagenbau'),
     ('sicherheit', 'Sicherheit & Zutritt'),
@@ -357,7 +357,10 @@ SERVICES = [
         ('h3', 'Glasfasertechnik'),
         ('p', 'Für LWL-Glasfasertechnik sind wir Ihr fachkundiger Ansprechpartner und verlegen Glasfaserverkabelung für alle Anforderungen.'),
     ]),
-    ('pruefung', 'Prüfung', 'Prüfung von Elektroanlagen und Geräten', [
+    ('pruefung', 'Prüfung', 'E-CHECK und Prüfung von Elektroanlagen und Geräten', [
+        ('h3', 'E-CHECK'),
+        ('p', 'Als E-CHECK-Fachbetrieb prüfen wir Ihre Elektroinstallation und Ihre elektrischen Geräte nach den geltenden Normen, in der Wohnung, im Haus und im Betrieb. Sie erhalten ein Prüfprotokoll und bei bestandener Prüfung die E-CHECK-Prüfplakette.'),
+        ('p', 'Den E-CHECK verlangen zum Beispiel manche Versicherungen, Vermieter oder Käufer einer Immobilie. Er zeigt, dass Ihre Anlage sicher ist und keine Brand- oder Unfallgefahr von ihr ausgeht.'),
         ('h3', 'Prüfen von Elektroanlagen'),
         ('p', 'Durch den Betrieb und durch Alterung können an elektrischen Anlagen Gefahren entstehen. Deshalb müssen sie regelmäßig geprüft werden. Auch nach einer Mängelbehebung ist die Sicherheit der Anlage mit einer Prüfung nachzuweisen. Wir bieten Ihnen das Komplettpaket für die rechtssichere Prüfung Ihrer Anlage.'),
         ('h3', 'Prüfen ortsveränderlicher Geräte'),
@@ -401,14 +404,14 @@ def leistungen():
     body = '\n'.join([
         hero('Leistungen',
              'Elektrotechnik für Wohnhaus, Gewerbe und Industrie.',
-             'Elf Leistungen in sechs Bereichen, aus einer Hand geplant, installiert und gewartet.',
+             'Zwölf Leistungen in sechs Bereichen, aus einer Hand geplant, installiert und gewartet.',
              hero_actions()),
         f'  <nav class="index wrap" aria-label="Leistungsbereiche">\n{idx}\n  </nav>',
         *blocks,
         cta_band('Welche Leistung brauchen Sie?'),
     ])
     return page('leistungen.html', 'Leistungen – Horn Elektrische Anlagen, Neu Wulmstorf',
-                'KNX-Gebäudesteuerung, Daten- und Glasfasertechnik, Prüfung von Elektroanlagen und Geräten, Notbeleuchtung, Schaltanlagenbau, Sprech- und Sicherheitstechnik.',
+                'KNX-Gebäudesteuerung, Daten- und Glasfasertechnik, E-CHECK, Prüfung von Elektroanlagen und Geräten, Notbeleuchtung, Schaltanlagenbau, Sprech- und Sicherheitstechnik.',
                 body)
 
 
@@ -416,7 +419,7 @@ def leistungen():
 HOME_SVC = {
     'knx': 'Licht, Heizung und Sonnenschutz zentral steuern',
     'datentechnik': 'EDV-Netzwerke und LWL-Verkabelung',
-    'pruefung': 'Rechtssichere Prüfung von Anlagen und Geräten',
+    'pruefung': 'E-CHECK und rechtssichere Prüfung von Anlagen und Geräten',
     'notbeleuchtung': 'Sicherheitsbeleuchtung nach DIN und VDE',
     'schaltanlagenbau': 'Schaltschränke aus eigener Werkstatt',
     'sicherheit': 'Sprechanlagen, Zutritt und Schließanlagen',
@@ -445,14 +448,14 @@ def home():
     </div>
     <div class="facts stage-facts" aria-label="Kennzahlen">
       <div class="fact"><span class="num">1993</span><span class="lab">Gegründet</span></div>
-      <div class="fact"><span class="num">11</span><span class="lab">Leistungen</span></div>
+      <div class="fact"><span class="num">12</span><span class="lab">Leistungen</span></div>
       <div class="fact"><span class="num">7+2</span><span class="lab">Mitarbeiter + Azubis</span></div>
       <div class="fact fact-seal">{seal()}</div>
     </div>
   </section>''',
         f'''  <section class="home-sec wrap" aria-labelledby="h-leist">
     <div class="home-head">
-      <div><p class="eyebrow">Leistungen</p><h2 id="h-leist">Elf Leistungen in sechs Bereichen.</h2></div>
+      <div><p class="eyebrow">Leistungen</p><h2 id="h-leist">Zwölf Leistungen in sechs Bereichen.</h2></div>
 {more('leistungen.html', 'Alle Leistungen')}
     </div>
     <nav class="index" aria-label="Leistungsbereiche">
@@ -483,7 +486,7 @@ def home():
         cta_band(),
     ])
     return page('index.html', 'Horn Elektrische Anlagen – Elektrotechnik in Neu Wulmstorf seit 1993',
-                'Thomas Horn Elektrische Anlagen in Neu Wulmstorf: Beratung, Planung, Installation und Wartung. KNX, Daten- und Glasfasertechnik, Anlagenprüfung, Notbeleuchtung, Schaltanlagenbau. Meisterbetrieb seit 1993, ISO 9001.',
+                'Thomas Horn Elektrische Anlagen in Neu Wulmstorf: Beratung, Planung, Installation und Wartung. KNX, Daten- und Glasfasertechnik, E-CHECK, Anlagenprüfung, Notbeleuchtung, Schaltanlagenbau. Meisterbetrieb seit 1993, ISO 9001.',
                 body, active='index.html',
                 bg='<div class="stage-bg" aria-hidden="true"><canvas class="circuit"></canvas></div>',
                 head_extra=JSONLD)
@@ -578,7 +581,7 @@ def ueber_uns():
     facts = '''      <div class="facts">
         <div class="fact"><span class="num">1993</span><span class="lab">Gegründet</span></div>
         <div class="fact"><span class="num">7+2</span><span class="lab">Mitarbeiter + Azubis</span></div>
-        <div class="fact"><span class="num">11</span><span class="lab">Leistungen</span></div>
+        <div class="fact"><span class="num">12</span><span class="lab">Leistungen</span></div>
       </div>'''
     body = '\n'.join([
         hero('Unternehmen &nbsp;·&nbsp; Über uns',
