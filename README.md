@@ -37,7 +37,7 @@ Auf den Seiten gelb markiert:
 
 Außerdem:
 
-- **Fotos:** Zählerschrank, Steuerung, Unterverteilung, Prüfungsbrett und Aykan Gezici sind eingebaut (`assets/img/`). Aykan hat der Veröffentlichung von Name und Foto zugestimmt (15.10.2026). Nutzungsrecht für das Veranstaltungsfoto (Fotograf) noch klären. Weitere Fotos (Team, Fahrzeuge, Werkstatt) und Referenzen fehlen noch.
+- **Fotos:** Zählerschrank, Steuerung, Unterverteilung, Prüfungsbrett und Aykan Gezici sind eingebaut (`assets/img/`). Aykan hat der Veröffentlichung von Name und Foto zugestimmt (15.10.2026). Veranstaltungsfoto wurde selbst aufgenommen. Weitere Fotos (Team, Fahrzeuge, Werkstatt) und Referenzen fehlen noch.
 - **ISO 9001:** Zurzeit ein neutrales, selbst gestaltetes Siegel. Das offizielle Siegel des Zertifizierers (z. B. TÜV/DEKRA) als Datei anfragen und ersetzen.
 - **Logo:** neu als einfaches SVG-Zeichen nachgebaut. Original als Vektordatei anfragen.
 
