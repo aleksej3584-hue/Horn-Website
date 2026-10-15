@@ -33,7 +33,7 @@ Die Website lädt nichts von fremden Servern.
 
 Auf den Seiten gelb markiert:
 
-- **Datenschutz:** Hosting bei netcup eingetragen. Im netcup-Kundenbereich den Vertrag zur Auftragsverarbeitung (AVV) abschließen; Text rechtlich prüfen lassen
+- **Datenschutz:** Hosting-Anbieter noch offen (nicht netcup); Text rechtlich prüfen lassen
 
 Außerdem:
 
